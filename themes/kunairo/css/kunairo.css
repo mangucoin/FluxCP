@@ -99,6 +99,7 @@ html {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 body.kr-body {
@@ -112,6 +113,8 @@ body.kr-body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	overflow-x: hidden;
+	width: 100%;
 }
 
 a {
@@ -2323,6 +2326,26 @@ body.kr-body .kr-main--with-sidebar a:not(.kr-btn):not(.kr-submenu__item):not(.k
 	.kr-form-card__footer,
 	.kr-form-card__notices { padding-left: var(--kr-space-lg); padding-right: var(--kr-space-lg); }
 
+	/* Form tables — stack label above input on mobile */
+	body.kr-body .generic-form-table th {
+		min-width: 0 !important;
+		width: auto !important;
+		display: block !important;
+		text-align: left !important;
+		padding: 0.5rem 1rem 0.2rem !important;
+	}
+	body.kr-body .generic-form-table td {
+		display: block !important;
+		padding: 0.2rem 1rem 0.75rem !important;
+	}
+	body.kr-body .generic-form { max-width: 100%; }
+
+	/* Containers — reduce horizontal padding */
+	.kr-container { padding: 0 var(--kr-space-md); }
+	.kr-stats { padding: var(--kr-space-xl) 0; }
+	.kr-section--why { padding: var(--kr-space-2xl) 0; }
+	.kr-section--news { padding: var(--kr-space-2xl) 0; }
+
 	/* Sidebar mobile */
 	.kr-page--internal > .kr-sidebar-toggle { display: flex; }
 	.kr-sidebar {
@@ -2385,6 +2408,15 @@ body.kr-body .kr-main--with-sidebar a:not(.kr-btn):not(.kr-submenu__item):not(.k
 	.kr-stats__grid { grid-template-columns: 1fr; }
 	.kr-stats__item { padding: var(--kr-space-md) var(--kr-space-lg); }
 
-	.kr-featured__inner { padding: var(--kr-space-lg) var(--kr-space-lg) var(--kr-space-lg) calc(var(--kr-space-lg) + 4px); }
-	.kr-featured__title { font-size: 1.25rem; }
+	.kr-featured__inner { padding: var(--kr-space-md) var(--kr-space-md) var(--kr-space-md) calc(var(--kr-space-md) + 4px); }
+	.kr-featured__title { font-size: 1.125rem; }
+
+	/* Kill any remaining overflow sources */
+	.kr-container { padding: 0 var(--kr-space-sm); }
+	.kr-hero__content { padding: var(--kr-space-2xl) var(--kr-space-sm) var(--kr-space-xl); }
+	.kr-hero__actions .kr-btn { max-width: 100%; }
+	.kr-footer__inner { padding: var(--kr-space-xl) var(--kr-space-md) var(--kr-space-md); }
+	.kr-page--internal { padding: var(--kr-space-md); }
+	.kr-navbar { padding: 0 var(--kr-space-sm); }
+	.kr-navbar__inner { padding: 0 var(--kr-space-sm); }
 }
