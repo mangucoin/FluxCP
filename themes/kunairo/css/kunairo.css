@@ -1547,13 +1547,19 @@ body.kr-body .kr-main--full tr:hover td {
 }
 
 /* --------------------------------------------------------------------------
-   23. FORMS — Premium card treatment
+   23. FORMS — Table alignment fix + premium styling
    -------------------------------------------------------------------------- */
+
+/* --- Form container --- */
 body.kr-body .generic-form {
-	max-width: 560px;
+	max-width: 600px;
 }
 
+/* --- Table structure --- */
 body.kr-body .generic-form-table {
+	width: 100% !important;
+	border-collapse: separate !important;
+	border-spacing: 0 !important;
 	background: var(--kr-bg-secondary) !important;
 	border: 1px solid var(--kr-border-subtle) !important;
 	border-radius: var(--kr-radius-lg) !important;
@@ -1561,38 +1567,163 @@ body.kr-body .generic-form-table {
 	box-shadow: var(--kr-shadow-md) !important;
 }
 
+body.kr-body .generic-form-table tr {
+	display: table-row !important;
+}
+
+/* --- Label column (th) --- */
 body.kr-body .generic-form-table th {
+	width: 180px !important;
+	min-width: 180px !important;
+	text-align: right !important;
+	vertical-align: middle !important;
 	background: transparent !important;
 	border: none !important;
+	border-bottom: 1px solid var(--kr-border-subtle) !important;
 	color: var(--kr-text-secondary) !important;
 	font-family: var(--kr-font-heading) !important;
 	font-size: 0.75rem !important;
 	font-weight: 600 !important;
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
-	padding: var(--kr-space-md) var(--kr-space-lg) var(--kr-space-xs) !important;
-	vertical-align: bottom;
+	padding: 0.75rem 1rem 0.75rem 1.25rem !important;
+	white-space: nowrap;
 }
 
+/* --- Input column (td) --- */
 body.kr-body .generic-form-table td {
+	width: 100% !important;
 	background: transparent !important;
 	border: none !important;
-	padding: var(--kr-space-xs) var(--kr-space-lg) var(--kr-space-md) !important;
 	border-bottom: 1px solid var(--kr-border-subtle) !important;
+	padding: 0.75rem 1.25rem 0.75rem 0.75rem !important;
+	vertical-align: middle !important;
 }
 
+/* Last row — no border */
+body.kr-body .generic-form-table tr:last-child th,
 body.kr-body .generic-form-table tr:last-child td {
 	border-bottom: none !important;
-	padding-top: var(--kr-space-md) !important;
-	padding-bottom: var(--kr-space-lg) !important;
 }
 
+/* --- Force input consistency --- */
 body.kr-body .generic-form-table input[type="text"],
 body.kr-body .generic-form-table input[type="password"],
 body.kr-body .generic-form-table input[type="email"],
-body.kr-body .generic-form-table select,
+body.kr-body .generic-form-table input[type="number"],
 body.kr-body .generic-form-table textarea {
-	width: 100%;
+	width: 100% !important;
+	max-width: 100% !important;
+	box-sizing: border-box !important;
+	display: block !important;
+}
+
+body.kr-body .generic-form-table select {
+	width: 100% !important;
+	max-width: 100% !important;
+	box-sizing: border-box !important;
+	display: block !important;
+}
+
+/* --- Multi-field rows (date selects, inline fields) --- */
+body.kr-body .generic-form-table td > select + select,
+body.kr-body .generic-form-table td .datefields select {
+	display: inline-block !important;
+	width: auto !important;
+	min-width: 70px !important;
+	margin-right: 4px;
+}
+
+/* Radio buttons inline */
+body.kr-body .generic-form-table td p:has(input[type="radio"]),
+body.kr-body .generic-form-table td label:has(input[type="radio"]) {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	margin-right: var(--kr-space-md);
+}
+body.kr-body .generic-form-table input[type="radio"] {
+	width: auto !important;
+	display: inline-block !important;
+	accent-color: var(--kr-red);
+}
+
+/* --- Button alignment --- */
+body.kr-body .generic-form-table td input[type="submit"],
+body.kr-body .generic-form-table td button {
+	display: inline-block !important;
+	width: auto !important;
+	margin-top: 4px;
+}
+
+/* --- Security code / captcha --- */
+body.kr-body .generic-form-table .security-code {
+	background: var(--kr-bg-elevated);
+	border: 1px solid var(--kr-border-default);
+	border-radius: var(--kr-radius-md);
+	padding: var(--kr-space-sm);
+	display: inline-block;
+	margin-bottom: var(--kr-space-sm);
+}
+body.kr-body .generic-form-table .security-code img {
+	display: block;
+	border-radius: var(--kr-radius-sm);
+}
+
+/* --- Search forms --- */
+body.kr-body .search-form,
+body.kr-body .search-form2 {
+	background: var(--kr-bg-secondary);
+	border: 1px solid var(--kr-border-subtle);
+	border-radius: var(--kr-radius-lg);
+	padding: var(--kr-space-lg) var(--kr-space-xl);
+	box-shadow: var(--kr-shadow-sm);
+	margin-bottom: var(--kr-space-lg);
+}
+
+body.kr-body .search-form p,
+body.kr-body .search-form2 p {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 10px;
+	align-items: end;
+	margin: 0 0 var(--kr-space-md);
+}
+
+body.kr-body .search-form label,
+body.kr-body .search-form2 label {
+	font-family: var(--kr-font-heading);
+	font-size: 0.6875rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--kr-text-secondary);
+	display: block;
+	margin-bottom: 4px;
+}
+
+body.kr-body .search-form input[type="text"],
+body.kr-body .search-form2 input[type="text"],
+body.kr-body .search-form select,
+body.kr-body .search-form2 select {
+	width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+body.kr-body .search-form input[type="submit"],
+body.kr-body .search-form input[type="button"],
+body.kr-body .search-form input[type="reset"],
+body.kr-body .search-form2 input[type="submit"],
+body.kr-body .search-form2 input[type="button"],
+body.kr-body .search-form2 input[type="reset"] {
+	width: auto !important;
+}
+
+body.kr-body .search-form input[type="checkbox"],
+body.kr-body .search-form2 input[type="checkbox"] {
+	width: auto !important;
+	display: inline-block !important;
+	accent-color: var(--kr-red);
 }
 
 /* Content headings for internal pages */
