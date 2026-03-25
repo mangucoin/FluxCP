@@ -836,5 +836,20 @@ return array(
 	// Module: webcommands
 	'WCTitleLabel'			=> 'Web Commands',
 
+	// KunaiRO Theme
+	'KunaiROHeroTitle'          => 'KunaiRO',
+	'KunaiROHeroTagline'        => 'Where War Matters',
+	'KunaiROHeroDescription'    => 'Competitive Pre-Renewal server with a living economy and real progression.',
+	'KunaiROBadgePreRenewal'    => 'Pre-Renewal',
+	'KunaiROBadgeRates'         => '75x / 75x / 20x',
+	'KunaiROBadgeNoPTW'         => 'No Pay-to-Win',
+	'KunaiROBtnPlay'            => 'Play Now',
+	'KunaiROBtnRegister'        => 'Create Account',
+	'KunaiROBtnDiscord'         => 'Discord',
+	'KunaiROFooterTagline'      => 'Where War Matters',
+	'KunaiROFooterCopyright'    => 'All rights reserved.',
+	'KunaiROFooterNavDownload'  => 'Download',
+	'KunaiROFooterNavSupport'   => 'Support',
+
 );
 ?>

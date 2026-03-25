@@ -844,5 +844,20 @@ return array(
 	'SDGroup3'     => 'Administration',
 	'SDLinkOpenNew'     => 'Open a new ticket',
 
+	// KunaiRO Theme
+	'KunaiROHeroTitle'          => 'KunaiRO',
+	'KunaiROHeroTagline'        => 'Donde la guerra sí importa',
+	'KunaiROHeroDescription'    => 'Servidor Pre-Renewal competitivo con economía viva y progreso real.',
+	'KunaiROBadgePreRenewal'    => 'Pre-Renewal',
+	'KunaiROBadgeRates'         => '75x / 75x / 20x',
+	'KunaiROBadgeNoPTW'         => 'Sin Pay-to-Win',
+	'KunaiROBtnPlay'            => 'Jugar ahora',
+	'KunaiROBtnRegister'        => 'Crear cuenta',
+	'KunaiROBtnDiscord'         => 'Discord',
+	'KunaiROFooterTagline'      => 'Donde la guerra sí importa',
+	'KunaiROFooterCopyright'    => 'Todos los derechos reservados.',
+	'KunaiROFooterNavDownload'  => 'Descargar',
+	'KunaiROFooterNavSupport'   => 'Soporte',
+
 );
 ?>
