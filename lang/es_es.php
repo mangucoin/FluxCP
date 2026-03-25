@@ -859,5 +859,27 @@ return array(
 	'KunaiROFooterNavDownload'  => 'Descargar',
 	'KunaiROFooterNavSupport'   => 'Soporte',
 
+	// KunaiRO — Stats bar
+	'KunaiROStatsPlayersLabel'  => 'Jugadores activos',
+	'KunaiROStatsWoELabel'      => 'Estado WoE',
+	'KunaiROStatsWoEActive'     => 'Activo',
+	'KunaiROStatsUptimeLabel'   => 'Uptime',
+	'KunaiROStatsRatesLabel'    => 'Rates',
+	'KunaiROStatsRatesValue'    => '75x / 75x / 20x',
+
+	// KunaiRO — Why section
+	'KunaiROWhyHeading'             => 'Por qué KunaiRO',
+	'KunaiROWhyBalancedTitle'       => 'Pre-Renewal balanceado',
+	'KunaiROWhyBalancedDesc'        => 'Clases ajustadas para PvP y WoE competitivo. Sin builds rotos ni exploits.',
+	'KunaiROWhyNoPTWTitle'          => 'Sin Pay-to-Win',
+	'KunaiROWhyNoPTWDesc'           => 'Cada ventaja se gana jugando. Sin atajos de cash shop.',
+	'KunaiROWhyEconomyTitle'        => 'Economía viva',
+	'KunaiROWhyEconomyDesc'         => 'Mercado impulsado por jugadores con oferta y demanda real. El vending importa.',
+	'KunaiROWhyCompetitionTitle'    => 'Competencia real',
+	'KunaiROWhyCompetitionDesc'     => 'WoE semanal, temporadas PvP rankeadas y rivalidades de guild que definen el servidor.',
+
+	// KunaiRO — News section
+	'KunaiRONewsHeading'            => 'Últimas noticias',
+
 );
 ?>
