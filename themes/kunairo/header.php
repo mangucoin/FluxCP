@@ -30,7 +30,13 @@ $isHomepage = ($_krModule == 'main' && (!$_krAction || $_krAction == 'index'));
 		<?php endif ?>
 
 		<!-- KunaiRO theme styles -->
-		<link rel="stylesheet" href="<?php echo $this->themePath('css/kunairo.css') ?>" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="<?php echo $this->themePath('css/kunairo.css') ?>?v=<?php echo time() ?>" type="text/css" media="screen" charset="utf-8" />
+
+		<!-- Nuclear override for flux.css white forms -->
+		<style>
+			.generic-form, .generic-form-div { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
+			body.kr-body input[type="text"], body.kr-body input[type="password"], body.kr-body input[type="email"], body.kr-body input[type="file"], body.kr-body textarea, body.kr-body select { background: #151822 !important; color: #EDE6D6 !important; border: 1px solid rgba(201,164,92,0.15) !important; }
+		</style>
 
 		<!-- Scripts -->
 		<script type="text/javascript" src="<?php echo $this->themePath('js/jquery-1.8.3.min.js') ?>"></script>
