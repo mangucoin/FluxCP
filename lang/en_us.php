@@ -872,6 +872,7 @@ return array(
 
 	// KunaiRO — News section
 	'KunaiRONewsHeading'            => 'Latest News',
+	'KunaiRONewsEmpty'              => 'No news yet. Stay tuned for updates.',
 
 );
 ?>

@@ -170,7 +170,10 @@
 			<?php endforeach; ?>
 			<?php if ($newsIndex > 1): ?></div><?php endif; ?>
 		<?php else: ?>
-			<p class="kr-text-muted"><?php echo htmlspecialchars(Flux::message('CMSNewsEmpty')) ?></p>
+			<div class="kr-empty">
+				<span class="kr-empty__icon">&#9998;</span>
+				<p class="kr-empty__text"><?php echo htmlspecialchars(Flux::message('KunaiRONewsEmpty')) ?></p>
+			</div>
 		<?php endif ?>
 
 	<?php elseif($newstype == '2'):?>
@@ -205,7 +208,10 @@
 			<?php endforeach; ?>
 			<?php if ($i > 1): ?></div><?php endif; ?>
 		<?php else: ?>
-			<p class="kr-text-muted"><?php echo htmlspecialchars(Flux::message('CMSNewsRSSNotFound')) ?></p>
+			<div class="kr-empty">
+				<span class="kr-empty__icon">&#9998;</span>
+				<p class="kr-empty__text"><?php echo htmlspecialchars(Flux::message('KunaiRONewsEmpty')) ?></p>
+			</div>
 		<?php endif ?>
 	<?php endif ?>
 
