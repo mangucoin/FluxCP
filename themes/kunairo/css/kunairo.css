@@ -1550,9 +1550,15 @@ body.kr-body .kr-main--full tr:hover td {
    23. FORMS — Table alignment fix + premium styling
    -------------------------------------------------------------------------- */
 
-/* --- Form container --- */
-body.kr-body .generic-form {
+/* --- Form container — kill white bg/border from flux.css --- */
+body.kr-body .generic-form,
+body.kr-body .generic-form-div {
 	max-width: 600px;
+	background-color: transparent !important;
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+	padding: 0 !important;
 }
 
 /* --- Table structure --- */
@@ -1654,6 +1660,34 @@ body.kr-body .generic-form-table td button {
 	display: inline-block !important;
 	width: auto !important;
 	margin-top: 4px;
+}
+
+/* --- Fix dark theme text colors (override flux.css defaults) --- */
+body.kr-body .generic-form-table td p {
+	color: var(--kr-text-secondary) !important;
+	margin: 4px 0 !important;
+}
+body.kr-body .generic-form-table td div {
+	color: var(--kr-text-secondary) !important;
+}
+body.kr-body #content {
+	color: var(--kr-text-primary) !important;
+}
+body.kr-body p {
+	color: var(--kr-text-secondary);
+}
+body.kr-body h2 {
+	color: var(--kr-cream) !important;
+}
+body.kr-body label {
+	color: var(--kr-text-secondary);
+}
+body.kr-body strong {
+	color: var(--kr-text-primary);
+}
+body.kr-body .action a {
+	color: var(--kr-gold) !important;
+	font-size: 0.8125rem;
 }
 
 /* --- Security code / captcha --- */

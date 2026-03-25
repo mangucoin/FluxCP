@@ -882,5 +882,19 @@ return array(
 	'KunaiRONewsHeading'            => 'Últimas noticias',
 	'KunaiRONewsEmpty'              => 'Sin noticias por ahora. Pronto habrá novedades.',
 
+	// KunaiRO — Submenu translations (account module)
+	'KunaiROSubLogin'               => 'Iniciar sesión',
+	'KunaiROSubRegister'            => 'Registrarse',
+	'KunaiROSubResetPass'           => 'Restablecer contraseña',
+	'KunaiROSubResend'              => 'Reenviar confirmación de e-mail',
+	'KunaiROSubChangePass'          => 'Cambiar contraseña',
+	'KunaiROSubChangeMail'          => 'Cambiar e-mail',
+	'KunaiROSubChangeGender'        => 'Cambiar género',
+	'KunaiROSubViewAccount'         => 'Ver cuenta',
+	'KunaiROSubTransfer'            => 'Transferir créditos',
+	'KunaiROSubXferLog'             => 'Historial de transferencias',
+	'KunaiROSubCart'                => 'Ir al carrito de compras',
+	'KunaiROSubListAccounts'        => 'Listar cuentas',
+
 );
 ?>

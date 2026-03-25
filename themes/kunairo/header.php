@@ -209,14 +209,37 @@ $isHomepage = ($_krModule == 'main' && (!$_krAction || $_krAction == 'index'));
 					<div class="kr-alert kr-alert--info"><?php echo htmlspecialchars($message) ?></div>
 				<?php endif ?>
 
-				<?php $subMenuItems = $this->getSubMenuItems(); ?>
+				<?php
+				$subMenuItems = $this->getSubMenuItems();
+				// Map config submenu names to translatable keys
+				$_krSubMap = array(
+					'Login'                      => 'KunaiROSubLogin',
+					'Register'                   => 'KunaiROSubRegister',
+					'Reset Password'             => 'KunaiROSubResetPass',
+					'Resend E-mail Confirmation' => 'KunaiROSubResend',
+					'Change Password'            => 'KunaiROSubChangePass',
+					'Change E-mail'              => 'KunaiROSubChangeMail',
+					'Change Gender'              => 'KunaiROSubChangeGender',
+					'View Account'               => 'KunaiROSubViewAccount',
+					'Transfer Credits'           => 'KunaiROSubTransfer',
+					'Credit Transfer History'    => 'KunaiROSubXferLog',
+					'Go to Shopping Cart'        => 'KunaiROSubCart',
+					'List Accounts'              => 'KunaiROSubListAccounts',
+				);
+				?>
 				<?php if (!empty($subMenuItems)): ?>
 				<nav class="kr-submenu">
 					<?php $menus = array(); foreach ($subMenuItems as $menuItem): ?>
+					<?php
+						$_krSubName = $menuItem['name'];
+						if (isset($_krSubMap[$_krSubName])) {
+							$_krSubName = Flux::message($_krSubMap[$_krSubName]);
+						}
+					?>
 					<?php $menus[] = sprintf('<a href="%s" class="kr-submenu__item%s">%s</a>',
 						$this->url($menuItem['module'], $menuItem['action']),
-						$params->get('module') == $menuItem['module'] && $params->get('action') == $menuItem['action'] ? ' kr-submenu__item--active' : '',
-						htmlspecialchars($menuItem['name'])) ?>
+						$_krModule == $menuItem['module'] && $_krAction == $menuItem['action'] ? ' kr-submenu__item--active' : '',
+						htmlspecialchars(trim($_krSubName))) ?>
 					<?php endforeach ?>
 					<?php echo implode('', $menus) ?>
 				</nav>
