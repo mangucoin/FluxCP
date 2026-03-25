@@ -2,12 +2,15 @@
 
 <!-- ===== HERO SECTION ===== -->
 <section class="kr-hero">
-	<!-- Animated background layers -->
+	<!-- Multi-layer animated background -->
 	<div class="kr-hero__bg">
-		<div class="kr-hero__bg-base"></div>
+		<div class="kr-hero__bg-deep"></div>
+		<div class="kr-hero__bg-fire"></div>
 		<div class="kr-hero__bg-energy"></div>
 		<div class="kr-hero__bg-smoke"></div>
-		<div class="kr-hero__bg-embers"></div>
+		<div class="kr-hero__bg-sparks"></div>
+		<div class="kr-hero__bg-radial"></div>
+		<div class="kr-hero__bg-scanlines"></div>
 		<div class="kr-hero__bg-vignette"></div>
 	</div>
 
@@ -29,9 +32,9 @@
 
 		<!-- Decorative divider -->
 		<div class="kr-hero__divider">
-			<span class="kr-hero__divider-line"></span>
+			<span class="kr-hero__divider-wing kr-hero__divider-wing--left"></span>
 			<span class="kr-hero__divider-diamond"></span>
-			<span class="kr-hero__divider-line"></span>
+			<span class="kr-hero__divider-wing kr-hero__divider-wing--right"></span>
 		</div>
 
 		<!-- Description -->
@@ -39,7 +42,7 @@
 
 		<!-- CTA Buttons -->
 		<div class="kr-hero__actions">
-			<a href="<?php echo $this->url('account', 'create') ?>" class="kr-btn kr-btn--primary kr-btn--lg kr-btn--glow">
+			<a href="<?php echo $this->url('account', 'create') ?>" class="kr-btn kr-btn--primary kr-btn--xl kr-btn--glow">
 				<?php echo htmlspecialchars(Flux::message('KunaiROBtnPlay')) ?>
 			</a>
 			<a href="<?php echo $this->url('account', 'create') ?>" class="kr-btn kr-btn--secondary kr-btn--lg">
@@ -50,37 +53,45 @@
 			</a>
 		</div>
 	</div>
+
+	<!-- Bottom fade into next section -->
+	<div class="kr-hero__fade"></div>
 </section>
 
-<!-- ===== NEWS / CONTENT SECTION ===== -->
-<section class="kr-section">
+<!-- ===== NEWS SECTION ===== -->
+<section class="kr-section kr-section--news">
+	<div class="kr-container">
 <?php if(Flux::config('CMSNewsOnHomepage')): ?>
-	<h2 class="kr-section__heading">
-		<?php echo htmlspecialchars(sprintf(Flux::message('MainPageWelcome'), Flux::config('SiteTitle'))) ?>
-	</h2>
+		<h2 class="kr-section__heading">
+			<span class="kr-section__heading-icon">&#9876;</span>
+			<?php echo htmlspecialchars(sprintf(Flux::message('MainPageWelcome'), Flux::config('SiteTitle'))) ?>
+		</h2>
 
 	<?php if($newstype == '1'):?>
 		<?php if($news): ?>
 			<div class="kr-news-grid">
-			<?php foreach($news as $nrow):?>
-				<article class="kr-card kr-card--news">
-					<div class="kr-card__header">
-						<h3 class="kr-card__title"><?php echo $nrow->title ?></h3>
-						<span class="kr-card__meta">
-							<?php echo $nrow->author ?> &middot; <?php echo date(Flux::config('DateFormat'),strtotime($nrow->created))?>
-						</span>
+			<?php $newsIndex = 0; foreach($news as $nrow): $newsIndex++; ?>
+				<article class="kr-card kr-card--news<?php if ($newsIndex === 1) echo ' kr-card--featured' ?>">
+					<div class="kr-card__accent"></div>
+					<div class="kr-card__inner">
+						<div class="kr-card__header">
+							<h3 class="kr-card__title"><?php echo $nrow->title ?></h3>
+							<span class="kr-card__meta">
+								<?php echo $nrow->author ?> &middot; <?php echo date(Flux::config('DateFormat'),strtotime($nrow->created))?>
+							</span>
+						</div>
+						<div class="kr-card__body">
+							<?php echo $nrow->body ?>
+						</div>
+						<?php if($nrow->created != $nrow->modified && Flux::config('CMSDisplayModifiedBy')):?>
+						<div class="kr-card__footer">
+							<small><?php echo htmlspecialchars(Flux::message('CMSModifiedLabel')) ?>: <?php echo date(Flux::config('DateFormat'),strtotime($nrow->modified))?></small>
+						</div>
+						<?php endif; ?>
+						<?php if($nrow->link): ?>
+						<a href="<?php echo $nrow->link ?>" class="kr-card__link"><?php echo htmlspecialchars(Flux::message('CMSNewsLink')) ?> &rarr;</a>
+						<?php endif; ?>
 					</div>
-					<div class="kr-card__body">
-						<?php echo $nrow->body ?>
-					</div>
-					<?php if($nrow->created != $nrow->modified && Flux::config('CMSDisplayModifiedBy')):?>
-					<div class="kr-card__footer">
-						<small><?php echo htmlspecialchars(Flux::message('CMSModifiedLabel')) ?>: <?php echo date(Flux::config('DateFormat'),strtotime($nrow->modified))?></small>
-					</div>
-					<?php endif; ?>
-					<?php if($nrow->link): ?>
-					<a href="<?php echo $nrow->link ?>" class="kr-card__link"><?php echo htmlspecialchars(Flux::message('CMSNewsLink')) ?></a>
-					<?php endif; ?>
 				</article>
 			<?php endforeach; ?>
 			</div>
@@ -93,15 +104,18 @@
 		<div class="kr-news-grid">
 			<?php $i = 0; foreach($xml->channel->item as $rssItem): ?>
 				<?php $i++; if($i <= $newslimit): ?>
-				<article class="kr-card kr-card--news">
-					<div class="kr-card__header">
-						<h3 class="kr-card__title"><?php echo $rssItem->title ?></h3>
-						<span class="kr-card__meta"><?php echo date(Flux::config('DateFormat'),strtotime($rssItem->pubDate))?></span>
+				<article class="kr-card kr-card--news<?php if ($i === 1) echo ' kr-card--featured' ?>">
+					<div class="kr-card__accent"></div>
+					<div class="kr-card__inner">
+						<div class="kr-card__header">
+							<h3 class="kr-card__title"><?php echo $rssItem->title ?></h3>
+							<span class="kr-card__meta"><?php echo date(Flux::config('DateFormat'),strtotime($rssItem->pubDate))?></span>
+						</div>
+						<div class="kr-card__body">
+							<?php echo $rssItem->description ?>
+						</div>
+						<a href="<?php echo $rssItem->link ?>" class="kr-card__link"><?php echo htmlspecialchars(Flux::message('CMSNewsLink')) ?> &rarr;</a>
 					</div>
-					<div class="kr-card__body">
-						<?php echo $rssItem->description ?>
-					</div>
-					<a href="<?php echo $rssItem->link ?>" class="kr-card__link"><?php echo htmlspecialchars(Flux::message('CMSNewsLink')) ?></a>
 				</article>
 				<?php endif ?>
 			<?php endforeach; ?>
@@ -116,9 +130,9 @@
 	<p><strong><?php echo htmlspecialchars(Flux::message('MainPageInfo')) ?></strong></p>
 	<p><?php echo htmlspecialchars(Flux::message('MainPageInfo2')) ?></p>
 	<ol>
-		<li><p class="green"><?php echo htmlspecialchars(sprintf(Flux::message('MainPageStep1'), __FILE__)) ?></p></li>
-		<li><p class="green"><?php echo htmlspecialchars(Flux::message('MainPageStep2')) ?></p></li>
+		<li><p><?php echo htmlspecialchars(sprintf(Flux::message('MainPageStep1'), __FILE__)) ?></p></li>
+		<li><p><?php echo htmlspecialchars(Flux::message('MainPageStep2')) ?></p></li>
 	</ol>
-	<p style="text-align: right"><strong><em><?php echo htmlspecialchars(Flux::message('MainPageThanks')) ?></em></strong></p>
 <?php endif ?>
+	</div>
 </section>

@@ -1,5 +1,9 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<?php $adminMenuItems = $this->getAdminMenuItems(); ?>
+<?php
+$adminMenuItems = $this->getAdminMenuItems();
+$menuItems = $this->getMenuItems();
+$isHomepage = ($params->get('module') == 'main' && in_array($params->get('action'), array('index', null, '')));
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -33,59 +37,45 @@
 		<script type="text/javascript">
 			$(document).ready(function(){
 				var inputs = 'input[type=text],input[type=password],input[type=file]';
-				$(inputs).focus(function(){
-					$(this).addClass('kr-input--focused');
-				});
-				$(inputs).blur(function(){
-					$(this).removeClass('kr-input--focused');
-				});
+				$(inputs).focus(function(){ $(this).addClass('kr-input--focused'); });
+				$(inputs).blur(function(){ $(this).removeClass('kr-input--focused'); });
 				$('.money-input').keyup(function() {
 					var creditValue = parseInt($(this).val() / <?php echo Flux::config('CreditExchangeRate') ?>, 10);
-					if (isNaN(creditValue))
-						$('.credit-input').val('?');
-					else
-						$('.credit-input').val(creditValue);
+					$('.credit-input').val(isNaN(creditValue) ? '?' : creditValue);
 				}).keyup();
 				$('.credit-input').keyup(function() {
 					var moneyValue = parseFloat($(this).val() * <?php echo Flux::config('CreditExchangeRate') ?>);
-					if (isNaN(moneyValue))
-						$('.money-input').val('?');
-					else
-						$('.money-input').val(moneyValue.toFixed(2));
+					$('.money-input').val(isNaN(moneyValue) ? '?' : moneyValue.toFixed(2));
 				}).keyup();
 				processDateFields();
 
-				// Mobile sidebar toggle
+				// Mobile nav toggle
+				$('.kr-nav-toggle').on('click', function() {
+					$('.kr-navbar__nav').toggleClass('kr-navbar__nav--open');
+					$(this).toggleClass('kr-nav-toggle--active');
+				});
+
+				// Mobile sidebar toggle (internal pages)
 				$('.kr-sidebar-toggle').on('click', function() {
 					$('.kr-sidebar').toggleClass('kr-sidebar--open');
 				});
 			});
 
-			function reload(){
-				window.location.href = '<?php echo $this->url ?>';
-			}
-
+			function reload(){ window.location.href = '<?php echo $this->url ?>'; }
 			function updatePreferredServer(sel){
-				var preferred = sel.options[sel.selectedIndex].value;
-				document.preferred_server_form.preferred_server.value = preferred;
+				document.preferred_server_form.preferred_server.value = sel.options[sel.selectedIndex].value;
 				document.preferred_server_form.submit();
 			}
-
 			function updatePreferredTheme(sel){
-				var preferred = sel.options[sel.selectedIndex].value;
-				document.preferred_theme_form.preferred_theme.value = preferred;
+				document.preferred_theme_form.preferred_theme.value = sel.options[sel.selectedIndex].value;
 				document.preferred_theme_form.submit();
 			}
-
 			function updatePreferredLanguage(sel){
-				var preferred = sel.options[sel.selectedIndex].value;
-				setCookie('language', preferred);
+				setCookie('language', sel.options[sel.selectedIndex].value);
 				reload();
 			}
-
 			var spinner = new Image();
 			spinner.src = '<?php echo $this->themePath('img/spinner.gif') ?>';
-
 			function refreshSecurityCode(imgSelector){
 				$(imgSelector).attr('src', spinner.src);
 				var clean = <?php echo Flux::config('UseCleanUrls') ? 'true' : 'false' ?>;
@@ -93,46 +83,50 @@
 				image.src = "<?php echo $this->url('captcha') ?>"+(clean ? '?nocache=' : '&nocache=')+Math.random();
 				$(imgSelector).attr('src', image.src);
 			}
-
-			function toggleSearchForm(){
-				$('.search-form').slideToggle('fast');
-			}
-
+			function toggleSearchForm(){ $('.search-form').slideToggle('fast'); }
 			function setCookie(key, value) {
 				var expires = new Date();
-				expires.setTime(expires.getTime() + expires.getTime());
+				expires.setTime(expires.getTime() + 31536000000);
 				document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
 			}
 		</script>
-
 		<?php if (Flux::config('EnableReCaptcha')): ?>
-			<script src='https://www.google.com/recaptcha/api.js'></script>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<?php endif ?>
-
 	</head>
-	<body class="kr-body">
+	<body class="kr-body<?php if ($isHomepage) echo ' kr-body--home' ?>">
 
-		<!-- ===== TOP NAVBAR ===== -->
+		<!-- ===== NAVBAR ===== -->
 		<nav class="kr-navbar">
 			<div class="kr-navbar__inner">
+				<!-- Brand -->
 				<a href="<?php echo $this->basePath ?>" class="kr-navbar__brand">
 					<span class="kr-navbar__logo-text">Kunai</span><span class="kr-navbar__logo-accent">RO</span>
 				</a>
 
-				<button class="kr-sidebar-toggle" aria-label="Menu">
-					<span></span><span></span><span></span>
-				</button>
+				<!-- Horizontal nav links -->
+				<div class="kr-navbar__nav">
+					<a href="<?php echo $this->url('main') ?>" class="kr-navbar__link<?php if ($isHomepage) echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('HomeLabel')) ?></a>
+					<a href="<?php echo $this->url('news') ?>" class="kr-navbar__link<?php if ($params->get('module') == 'news') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('NewsLabel')) ?></a>
+					<a href="<?php echo $this->url('ranking', 'character') ?>" class="kr-navbar__link<?php if ($params->get('module') == 'ranking') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('RankingInfoLabel')) ?></a>
+					<a href="<?php echo $this->url('server', 'status') ?>" class="kr-navbar__link<?php if ($params->get('module') == 'server') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('ServerStatusLabel')) ?></a>
+					<a href="<?php echo $this->url('woe') ?>" class="kr-navbar__link<?php if ($params->get('module') == 'woe') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('WoeHoursLabel')) ?></a>
+					<a href="<?php echo $this->url('item') ?>" class="kr-navbar__link<?php if ($params->get('module') == 'item') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('DatabaseLabel')) ?></a>
+				</div>
 
+				<!-- Right actions -->
 				<div class="kr-navbar__actions">
 					<?php if ($session->isLoggedIn()): ?>
-						<span class="kr-navbar__user">
-							<a href="<?php echo $this->url('account', 'view') ?>" class="kr-navbar__user-link"><?php echo htmlspecialchars($session->account->userid) ?></a>
-						</span>
+						<a href="<?php echo $this->url('account', 'view') ?>" class="kr-navbar__user-link"><?php echo htmlspecialchars($session->account->userid) ?></a>
 						<a href="<?php echo $this->url('account', 'logout') ?>" class="kr-btn kr-btn--sm kr-btn--ghost" onclick="return confirm('Are you sure you want to logout?')"><?php echo htmlspecialchars(Flux::message('LogoutLabel')) ?></a>
 					<?php else: ?>
 						<a href="<?php echo $this->url('account', 'login') ?>" class="kr-btn kr-btn--sm kr-btn--ghost"><?php echo htmlspecialchars(Flux::message('AccountLoginLabel')) ?></a>
 						<a href="<?php echo $this->url('account', 'create') ?>" class="kr-btn kr-btn--sm kr-btn--primary"><?php echo htmlspecialchars(Flux::message('CreateAccountLabel')) ?></a>
 					<?php endif ?>
+					<!-- Mobile toggle -->
+					<button class="kr-nav-toggle" aria-label="Menu">
+						<span></span><span></span><span></span>
+					</button>
 				</div>
 			</div>
 		</nav>
@@ -163,14 +157,24 @@
 		</div>
 		<?php endif ?>
 
-		<!-- ===== MAIN LAYOUT ===== -->
-		<div class="kr-layout">
-			<!-- Sidebar -->
+		<?php if ($isHomepage): ?>
+		<!-- ===== HOMEPAGE: Full-width, no sidebar ===== -->
+		<div class="kr-page kr-page--home">
+			<main class="kr-main kr-main--full">
+				<?php if ($message=$session->getMessage()): ?>
+					<div class="kr-container"><div class="kr-alert kr-alert--info"><?php echo htmlspecialchars($message) ?></div></div>
+				<?php endif ?>
+		<?php else: ?>
+		<!-- ===== INTERNAL PAGE: With sidebar ===== -->
+		<div class="kr-page kr-page--internal">
+			<?php if (!$isHomepage): ?>
+			<button class="kr-sidebar-toggle" aria-label="Sidebar">
+				<span></span><span></span><span></span>
+			</button>
+			<?php endif ?>
+			<!-- Sidebar for internal pages -->
 			<aside class="kr-sidebar">
-				<?php
-				$menuItems = $this->getMenuItems();
-				if (!empty($adminMenuItems) && !Flux::config('AdminMenuNewStyle')):
-				?>
+				<?php if (!empty($adminMenuItems) && !Flux::config('AdminMenuNewStyle')): ?>
 				<div class="kr-sidebar__section">
 					<h3 class="kr-sidebar__heading">Admin</h3>
 					<ul class="kr-sidebar__menu">
@@ -180,7 +184,6 @@
 					</ul>
 				</div>
 				<?php endif ?>
-
 				<?php if (!empty($menuItems)): ?>
 				<?php foreach ($menuItems as $menuCategory => $menus): ?>
 				<?php if (!empty($menus)): ?>
@@ -197,8 +200,7 @@
 				<?php endif ?>
 			</aside>
 
-			<!-- Content -->
-			<main class="kr-main">
+			<main class="kr-main kr-main--with-sidebar">
 				<?php if (Flux::config('DebugMode') && @gethostbyname(Flux::config('ServerAddress')) == '127.0.0.1'): ?>
 					<div class="kr-alert kr-alert--warning">Please change your <strong>ServerAddress</strong> directive in your application config to your server's real address.</div>
 				<?php endif ?>
@@ -235,3 +237,4 @@
 					<span class="kr-balance__amount"><?php echo number_format((int)$session->account->balance) ?></span>
 				</div>
 				<?php endif ?>
+		<?php endif ?>

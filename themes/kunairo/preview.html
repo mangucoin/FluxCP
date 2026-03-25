@@ -9,7 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="css/kunairo.css" type="text/css" />
 </head>
-<body class="kr-body">
+<body class="kr-body kr-body--home">
 
 	<!-- ===== NAVBAR ===== -->
 	<nav class="kr-navbar">
@@ -17,64 +17,38 @@
 			<a href="#" class="kr-navbar__brand">
 				<span class="kr-navbar__logo-text">Kunai</span><span class="kr-navbar__logo-accent">RO</span>
 			</a>
-			<button class="kr-sidebar-toggle" aria-label="Menu">
-				<span></span><span></span><span></span>
-			</button>
+			<div class="kr-navbar__nav" id="mainNav">
+				<a href="#" class="kr-navbar__link kr-navbar__link--active">Home</a>
+				<a href="#" class="kr-navbar__link">News</a>
+				<a href="#" class="kr-navbar__link">Ranking</a>
+				<a href="#" class="kr-navbar__link">Server Status</a>
+				<a href="#" class="kr-navbar__link">WOE Hours</a>
+				<a href="#" class="kr-navbar__link">Database</a>
+			</div>
 			<div class="kr-navbar__actions">
-				<a href="#" class="kr-btn kr-btn--sm kr-btn--ghost">Iniciar sesi&oacute;n</a>
-				<a href="#" class="kr-btn kr-btn--sm kr-btn--primary">Crear cuenta</a>
+				<a href="#" class="kr-btn kr-btn--sm kr-btn--ghost">Login</a>
+				<a href="#" class="kr-btn kr-btn--sm kr-btn--primary">Register</a>
+				<button class="kr-nav-toggle" aria-label="Menu" id="navToggle">
+					<span></span><span></span><span></span>
+				</button>
 			</div>
 		</div>
 	</nav>
 
-	<!-- ===== LAYOUT ===== -->
-	<div class="kr-layout">
-		<!-- Sidebar -->
-		<aside class="kr-sidebar" id="sidebar">
-			<div class="kr-sidebar__section">
-				<h3 class="kr-sidebar__heading">Informaci&oacute;n</h3>
-				<ul class="kr-sidebar__menu">
-					<li><a href="#">P&aacute;gina principal</a></li>
-					<li><a href="#">Estado del servidor</a></li>
-					<li><a href="#">Horarios WoE</a></li>
-					<li><a href="#">Noticias</a></li>
-				</ul>
-			</div>
-			<div class="kr-sidebar__section">
-				<h3 class="kr-sidebar__heading">Rankings</h3>
-				<ul class="kr-sidebar__menu">
-					<li><a href="#">Top personajes</a></li>
-					<li><a href="#">Top guilds</a></li>
-					<li><a href="#">Top zeny</a></li>
-				</ul>
-			</div>
-			<div class="kr-sidebar__section">
-				<h3 class="kr-sidebar__heading">Base de datos</h3>
-				<ul class="kr-sidebar__menu">
-					<li><a href="#">Items</a></li>
-					<li><a href="#">Monstruos</a></li>
-					<li><a href="#">Buscar</a></li>
-				</ul>
-			</div>
-			<div class="kr-sidebar__section">
-				<h3 class="kr-sidebar__heading">Cuenta</h3>
-				<ul class="kr-sidebar__menu">
-					<li><a href="#">Iniciar sesi&oacute;n</a></li>
-					<li><a href="#">Crear cuenta</a></li>
-				</ul>
-			</div>
-		</aside>
+	<!-- ===== HOMEPAGE FULL-WIDTH ===== -->
+	<div class="kr-page kr-page--home">
+		<main class="kr-main kr-main--full">
 
-		<!-- Content -->
-		<main class="kr-main">
-
-			<!-- ===== HERO SECTION ===== -->
+			<!-- ===== HERO ===== -->
 			<section class="kr-hero">
 				<div class="kr-hero__bg">
-					<div class="kr-hero__bg-base"></div>
+					<div class="kr-hero__bg-deep"></div>
+					<div class="kr-hero__bg-fire"></div>
 					<div class="kr-hero__bg-energy"></div>
 					<div class="kr-hero__bg-smoke"></div>
-					<div class="kr-hero__bg-embers"></div>
+					<div class="kr-hero__bg-sparks"></div>
+					<div class="kr-hero__bg-radial"></div>
+					<div class="kr-hero__bg-scanlines"></div>
 					<div class="kr-hero__bg-vignette"></div>
 				</div>
 				<div class="kr-hero__content">
@@ -88,140 +62,69 @@
 					</h1>
 					<p class="kr-hero__tagline">Donde la guerra s&iacute; importa</p>
 					<div class="kr-hero__divider">
-						<span class="kr-hero__divider-line"></span>
+						<span class="kr-hero__divider-wing kr-hero__divider-wing--left"></span>
 						<span class="kr-hero__divider-diamond"></span>
-						<span class="kr-hero__divider-line"></span>
+						<span class="kr-hero__divider-wing kr-hero__divider-wing--right"></span>
 					</div>
 					<p class="kr-hero__description">Servidor Pre-Renewal competitivo con econom&iacute;a viva y progreso real.</p>
 					<div class="kr-hero__actions">
-						<a href="#" class="kr-btn kr-btn--primary kr-btn--lg kr-btn--glow">Jugar ahora</a>
+						<a href="#" class="kr-btn kr-btn--primary kr-btn--xl kr-btn--glow">Jugar ahora</a>
 						<a href="#" class="kr-btn kr-btn--secondary kr-btn--lg">Crear cuenta</a>
 						<a href="#" class="kr-btn kr-btn--ghost kr-btn--lg">Discord</a>
 					</div>
 				</div>
+				<div class="kr-hero__fade"></div>
 			</section>
 
 			<!-- ===== NEWS SECTION ===== -->
-			<section class="kr-section">
-				<h2 class="kr-section__heading">Noticias del servidor</h2>
-				<div class="kr-news-grid">
-					<article class="kr-card kr-card--news">
-						<div class="kr-card__header">
-							<h3 class="kr-card__title">Temporada WoE 3 ha comenzado</h3>
-							<span class="kr-card__meta">Admin &middot; 2026-03-20</span>
-						</div>
-						<div class="kr-card__body">
-							La tercera temporada de War of Emperium ha iniciado. Nuevos castillos disponibles, tesoros actualizados y rankings reseteados. Prep&aacute;rense para la batalla.
-						</div>
-						<a href="#" class="kr-card__link">Leer m&aacute;s</a>
-					</article>
-
-					<article class="kr-card kr-card--news">
-						<div class="kr-card__header">
-							<h3 class="kr-card__title">Patch 2.4 &mdash; Balance de clases</h3>
-							<span class="kr-card__meta">Dev Team &middot; 2026-03-15</span>
-						</div>
-						<div class="kr-card__body">
-							Ajustes en Assassin Cross, Lord Knight y High Wizard. Revisa los cambios completos en el foro.
-						</div>
-						<a href="#" class="kr-card__link">Leer m&aacute;s</a>
-					</article>
-
-					<article class="kr-card kr-card--news">
-						<div class="kr-card__header">
-							<h3 class="kr-card__title">Evento de primavera: Sakura Festival</h3>
-							<span class="kr-card__meta">GM Team &middot; 2026-03-10</span>
-						</div>
-						<div class="kr-card__body">
-							Items exclusivos, quests temporales y drops especiales. Del 10 al 31 de marzo.
-						</div>
-						<a href="#" class="kr-card__link">Leer m&aacute;s</a>
-					</article>
-				</div>
-			</section>
-
-			<!-- ===== COMPONENT SHOWCASE ===== -->
-			<section class="kr-section">
-				<h2 class="kr-section__heading">Componentes del sistema visual</h2>
-
-				<h3 style="font-family: var(--kr-font-heading); color: var(--kr-gold); margin-bottom: var(--kr-space-md);">Botones</h3>
-				<div style="display: flex; flex-wrap: wrap; gap: var(--kr-space-md); margin-bottom: var(--kr-space-2xl);">
-					<a href="#" class="kr-btn kr-btn--primary kr-btn--glow">Primario + Glow</a>
-					<a href="#" class="kr-btn kr-btn--primary">Primario</a>
-					<a href="#" class="kr-btn kr-btn--secondary">Secundario</a>
-					<a href="#" class="kr-btn kr-btn--ghost">Ghost</a>
-				</div>
-
-				<h3 style="font-family: var(--kr-font-heading); color: var(--kr-gold); margin-bottom: var(--kr-space-md);">Badges</h3>
-				<div style="display: flex; flex-wrap: wrap; gap: var(--kr-space-sm); margin-bottom: var(--kr-space-2xl);">
-					<span class="kr-badge kr-badge--fire">Fire</span>
-					<span class="kr-badge kr-badge--gold">Gold</span>
-					<span class="kr-badge kr-badge--steel">Steel</span>
-					<span class="kr-badge kr-badge--red">Red</span>
-				</div>
-
-				<h3 style="font-family: var(--kr-font-heading); color: var(--kr-gold); margin-bottom: var(--kr-space-md);">Alertas</h3>
-				<div style="margin-bottom: var(--kr-space-2xl);">
-					<div class="kr-alert kr-alert--info">Alerta informativa con estilo dorado.</div>
-					<div class="kr-alert kr-alert--warning">Alerta de advertencia con estilo naranja.</div>
-				</div>
-
-				<h3 style="font-family: var(--kr-font-heading); color: var(--kr-gold); margin-bottom: var(--kr-space-md);">Formularios</h3>
-				<div style="max-width: 400px; margin-bottom: var(--kr-space-2xl);">
-					<div style="margin-bottom: var(--kr-space-md);">
-						<input type="text" placeholder="Username" style="width: 100%;" />
+			<section class="kr-section kr-section--news">
+				<div class="kr-container">
+					<h2 class="kr-section__heading">
+						<span class="kr-section__heading-icon">&#9876;</span>
+						Noticias del servidor
+					</h2>
+					<div class="kr-news-grid">
+						<article class="kr-card kr-card--featured">
+							<div class="kr-card__accent"></div>
+							<div class="kr-card__inner">
+								<div class="kr-card__header">
+									<h3 class="kr-card__title">Temporada WoE 3 ha comenzado</h3>
+									<span class="kr-card__meta">Admin &middot; 2026-03-20</span>
+								</div>
+								<div class="kr-card__body">
+									La tercera temporada de War of Emperium ha iniciado. Nuevos castillos disponibles, tesoros actualizados y rankings reseteados. Prep&aacute;rense para la batalla.
+								</div>
+								<a href="#" class="kr-card__link">Leer m&aacute;s &rarr;</a>
+							</div>
+						</article>
+						<article class="kr-card">
+							<div class="kr-card__accent"></div>
+							<div class="kr-card__inner">
+								<div class="kr-card__header">
+									<h3 class="kr-card__title">Patch 2.4 &mdash; Balance de clases</h3>
+									<span class="kr-card__meta">Dev Team &middot; 2026-03-15</span>
+								</div>
+								<div class="kr-card__body">
+									Ajustes en Assassin Cross, Lord Knight y High Wizard. Revisa los cambios completos en el foro.
+								</div>
+								<a href="#" class="kr-card__link">Leer m&aacute;s &rarr;</a>
+							</div>
+						</article>
+						<article class="kr-card">
+							<div class="kr-card__accent"></div>
+							<div class="kr-card__inner">
+								<div class="kr-card__header">
+									<h3 class="kr-card__title">Evento de primavera: Sakura Festival</h3>
+									<span class="kr-card__meta">GM Team &middot; 2026-03-10</span>
+								</div>
+								<div class="kr-card__body">
+									Items exclusivos, quests temporales y drops especiales. Del 10 al 31 de marzo.
+								</div>
+								<a href="#" class="kr-card__link">Leer m&aacute;s &rarr;</a>
+							</div>
+						</article>
 					</div>
-					<div style="margin-bottom: var(--kr-space-md);">
-						<input type="password" placeholder="Password" style="width: 100%;" />
-					</div>
-					<div style="margin-bottom: var(--kr-space-md);">
-						<select style="width: 100%;">
-							<option>Selecciona servidor</option>
-							<option>KunaiRO Main</option>
-							<option>KunaiRO Test</option>
-						</select>
-					</div>
-					<input type="submit" value="Iniciar sesi&oacute;n" />
 				</div>
-
-				<h3 style="font-family: var(--kr-font-heading); color: var(--kr-gold); margin-bottom: var(--kr-space-md);">Tabla (simulando vistas heredadas)</h3>
-				<table style="margin-bottom: var(--kr-space-2xl);">
-					<tr>
-						<th>Rank</th>
-						<th>Personaje</th>
-						<th>Clase</th>
-						<th>Guild</th>
-						<th>Base/Job</th>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>ShadowKunai</td>
-						<td>Assassin Cross</td>
-						<td>BladeStorm</td>
-						<td>99/70</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>IronFist</td>
-						<td>Lord Knight</td>
-						<td>WarLegion</td>
-						<td>99/70</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>ArcaneFlame</td>
-						<td>High Wizard</td>
-						<td>MysticOrder</td>
-						<td>99/70</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>HolyGuard</td>
-						<td>Paladin</td>
-						<td>BladeStorm</td>
-						<td>99/70</td>
-					</tr>
-				</table>
 			</section>
 
 		</main>
@@ -229,47 +132,64 @@
 
 	<!-- ===== FOOTER ===== -->
 	<footer class="kr-footer">
-		<div class="kr-footer__glow"></div>
+		<div class="kr-footer__border"></div>
+		<div class="kr-footer__bg"></div>
 		<div class="kr-footer__inner">
-			<div class="kr-footer__brand">
-				<span class="kr-footer__logo">Kunai<span class="kr-footer__logo-accent">RO</span></span>
+			<div class="kr-footer__col kr-footer__col--brand">
+				<div class="kr-footer__logo-wrap">
+					<span class="kr-footer__logo">Kunai<span class="kr-footer__logo-accent">RO</span></span>
+				</div>
 				<span class="kr-footer__tagline">Donde la guerra s&iacute; importa</span>
 			</div>
-			<div class="kr-footer__links">
-				<a href="#">P&aacute;gina principal</a>
-				<a href="#">Crear cuenta</a>
-				<a href="#">Rankings</a>
-				<a href="#">Estado del servidor</a>
-			</div>
-			<div class="kr-footer__selectors">
-				<div class="kr-footer__selector">
-					<label>Theme:</label>
-					<select class="kr-select kr-select--sm">
-						<option selected>kunairo</option>
-						<option>default</option>
-						<option>bootstrap</option>
-					</select>
-				</div>
-				<div class="kr-footer__selector">
-					<label>Language:</label>
-					<select class="kr-select kr-select--sm">
-						<option>Espa&ntilde;ol</option>
-						<option>English</option>
-					</select>
+			<div class="kr-footer__col">
+				<h4 class="kr-footer__col-title">Informaci&oacute;n</h4>
+				<div class="kr-footer__nav">
+					<a href="#">Server Status</a>
+					<a href="#">WOE Hours</a>
+					<a href="#">Rankings</a>
+					<a href="#">News</a>
 				</div>
 			</div>
-			<div class="kr-footer__copyright">
-				Powered by <a href="#">FluxCP</a> &mdash; Todos los derechos reservados.
+			<div class="kr-footer__col">
+				<h4 class="kr-footer__col-title">Cuenta</h4>
+				<div class="kr-footer__nav">
+					<a href="#">Crear cuenta</a>
+					<a href="#">Iniciar sesi&oacute;n</a>
+					<a href="#">Database</a>
+				</div>
 			</div>
-			<div class="kr-footer__meta">
-				Page rendered in <strong>0.012</strong>s &middot; Queries: <strong>8</strong>
+			<div class="kr-footer__col">
+				<div class="kr-footer__selectors">
+					<div class="kr-footer__selector">
+						<label>Theme</label>
+						<select class="kr-select kr-select--sm">
+							<option selected>kunairo</option>
+							<option>default</option>
+							<option>bootstrap</option>
+						</select>
+					</div>
+					<div class="kr-footer__selector">
+						<label>Language</label>
+						<select class="kr-select kr-select--sm">
+							<option>Espa&ntilde;ol</option>
+							<option>English</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="kr-footer__bottom">
+			<div class="kr-footer__bottom-inner">
+				<span class="kr-footer__copyright">Powered by <a href="#">FluxCP</a> &mdash; Todos los derechos reservados.</span>
+				<span class="kr-footer__meta">0.012s &middot; 8 queries</span>
 			</div>
 		</div>
 	</footer>
 
 	<script>
-		document.querySelector('.kr-sidebar-toggle').addEventListener('click', function() {
-			document.getElementById('sidebar').classList.toggle('kr-sidebar--open');
+		document.getElementById('navToggle').addEventListener('click', function() {
+			document.getElementById('mainNav').classList.toggle('kr-navbar__nav--open');
+			this.classList.toggle('kr-nav-toggle--active');
 		});
 	</script>
 </body>
