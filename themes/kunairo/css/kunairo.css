@@ -1853,7 +1853,219 @@ body.kr-body .kr-main--with-sidebar a:not(.kr-btn):not(.kr-submenu__item):not(.k
 }
 
 /* --------------------------------------------------------------------------
-   26. UTILITIES
+   26. FORM CARD SYSTEM (modern account pages)
+   -------------------------------------------------------------------------- */
+.kr-form-card {
+	max-width: 560px;
+	margin: 0 auto;
+	background: var(--kr-bg-secondary);
+	border: 1px solid var(--kr-border-subtle);
+	border-radius: var(--kr-radius-xl);
+	overflow: hidden;
+	box-shadow: var(--kr-shadow-lg);
+	position: relative;
+}
+.kr-form-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 3px;
+	background: linear-gradient(90deg, var(--kr-red), var(--kr-orange), var(--kr-red));
+}
+
+.kr-form-card__header {
+	padding: var(--kr-space-2xl) var(--kr-space-2xl) var(--kr-space-lg);
+	text-align: center;
+	border-bottom: 1px solid var(--kr-border-subtle);
+	background: linear-gradient(180deg, rgba(26, 13, 18, 0.3), transparent);
+}
+
+.kr-form-card__title {
+	font-family: var(--kr-font-heading);
+	font-size: 1.5rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--kr-cream);
+	margin: 0 0 var(--kr-space-sm);
+}
+
+.kr-form-card__subtitle {
+	font-size: 0.8125rem;
+	color: var(--kr-text-secondary);
+	margin: 0;
+	line-height: 1.6;
+}
+.kr-form-card__subtitle a {
+	color: var(--kr-gold);
+}
+
+.kr-form-card__error {
+	background: rgba(217, 72, 43, 0.08);
+	border: 1px solid rgba(217, 72, 43, 0.25);
+	color: var(--kr-red-light);
+	padding: var(--kr-space-md) var(--kr-space-2xl);
+	font-size: 0.875rem;
+	font-weight: 500;
+}
+
+.kr-form-card__notices {
+	padding: var(--kr-space-md) var(--kr-space-2xl);
+	border-bottom: 1px solid var(--kr-border-subtle);
+	background: rgba(201, 164, 92, 0.02);
+}
+
+.kr-form-notice {
+	font-size: 0.75rem;
+	color: var(--kr-text-muted);
+	padding: 2px 0;
+	padding-left: var(--kr-space-md);
+	position: relative;
+}
+.kr-form-notice::before {
+	content: '\2022';
+	position: absolute;
+	left: 0;
+	color: var(--kr-gold);
+}
+
+.kr-form-card__body {
+	padding: var(--kr-space-xl) var(--kr-space-2xl);
+}
+
+.kr-form-card__footer {
+	padding: var(--kr-space-lg) var(--kr-space-2xl) var(--kr-space-2xl);
+	border-top: 1px solid var(--kr-border-subtle);
+	background: rgba(0, 0, 0, 0.15);
+}
+
+.kr-form-card__terms {
+	font-size: 0.75rem;
+	color: var(--kr-text-muted);
+	margin: 0 0 var(--kr-space-md);
+	text-align: center;
+}
+.kr-form-card__terms a {
+	color: var(--kr-gold);
+}
+
+/* Form group */
+.kr-form-group {
+	margin-bottom: var(--kr-space-lg);
+	flex: 1;
+	min-width: 0;
+}
+.kr-form-group:last-child {
+	margin-bottom: 0;
+}
+
+.kr-form-label {
+	display: block;
+	font-family: var(--kr-font-heading);
+	font-size: 0.6875rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--kr-text-secondary);
+	margin-bottom: var(--kr-space-xs);
+}
+
+.kr-form-input {
+	display: block;
+	width: 100%;
+	background: var(--kr-bg-elevated) !important;
+	color: var(--kr-text-primary) !important;
+	border: 1px solid var(--kr-border-default) !important;
+	border-radius: var(--kr-radius-md) !important;
+	padding: 0.625rem 0.875rem !important;
+	font-family: var(--kr-font-body) !important;
+	font-size: 0.875rem !important;
+	transition: all var(--kr-ease) !important;
+	outline: none !important;
+}
+.kr-form-input:hover {
+	border-color: var(--kr-border-strong) !important;
+}
+.kr-form-input:focus {
+	border-color: var(--kr-gold) !important;
+	box-shadow: 0 0 0 3px rgba(201, 164, 92, 0.1), 0 0 16px rgba(201, 164, 92, 0.06) !important;
+	background-color: var(--kr-bg-surface) !important;
+}
+
+/* Two-column row */
+.kr-form-row {
+	display: flex;
+	gap: var(--kr-space-lg);
+}
+
+/* Radio group */
+.kr-form-radio-group {
+	display: flex;
+	gap: var(--kr-space-md);
+	padding-top: var(--kr-space-xs);
+}
+.kr-form-radio {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--kr-space-xs);
+	cursor: pointer;
+	font-size: 0.875rem;
+	color: var(--kr-text-secondary);
+	padding: var(--kr-space-xs) var(--kr-space-md);
+	border: 1px solid var(--kr-border-subtle);
+	border-radius: var(--kr-radius-md);
+	transition: all var(--kr-ease-fast);
+}
+.kr-form-radio:hover {
+	border-color: var(--kr-border-default);
+	background: rgba(201, 164, 92, 0.04);
+}
+.kr-form-radio input[type="radio"] {
+	accent-color: var(--kr-red);
+}
+.kr-form-radio input[type="radio"]:checked + span {
+	color: var(--kr-cream);
+}
+
+/* Date field (inherits FluxCP dateField output) */
+.kr-form-date select {
+	margin-right: var(--kr-space-xs);
+}
+
+/* Captcha */
+.kr-captcha {
+	display: flex;
+	flex-direction: column;
+	gap: var(--kr-space-sm);
+}
+.kr-captcha__image {
+	background: var(--kr-bg-elevated);
+	border: 1px solid var(--kr-border-default);
+	border-radius: var(--kr-radius-md);
+	padding: var(--kr-space-sm);
+	display: inline-block;
+}
+.kr-captcha__image img {
+	display: block;
+	border-radius: var(--kr-radius-sm);
+}
+.kr-captcha__refresh {
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: var(--kr-gold) !important;
+}
+
+/* Block button */
+.kr-btn--block {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   27. UTILITIES
    -------------------------------------------------------------------------- */
 .kr-text-muted { color: var(--kr-text-muted); }
 .kr-text-gold { color: var(--kr-gold); }
@@ -1943,6 +2155,13 @@ body.kr-body .kr-main--with-sidebar a:not(.kr-btn):not(.kr-submenu__item):not(.k
 	.kr-why__grid { grid-template-columns: 1fr; }
 	.kr-why__card { text-align: left; display: flex; gap: var(--kr-space-lg); align-items: flex-start; padding: var(--kr-space-lg); }
 	.kr-why__icon-wrap { margin-bottom: 0; flex-shrink: 0; }
+
+	/* Form cards mobile */
+	.kr-form-row { flex-direction: column; gap: 0; }
+	.kr-form-card__header,
+	.kr-form-card__body,
+	.kr-form-card__footer,
+	.kr-form-card__notices { padding-left: var(--kr-space-lg); padding-right: var(--kr-space-lg); }
 
 	/* Sidebar mobile */
 	.kr-page--internal > .kr-sidebar-toggle { display: flex; }
