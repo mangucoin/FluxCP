@@ -1,10 +1,11 @@
 	/*********************************************
-	 ** Stylesheet file for default Flux theme. **
+	 ** KunaiRO dark theme override of flux.css **
+	 ** Based on default FluxCP stylesheet.     **
 	 *********************************************/
 
 .loginbox-admin-menu {
 	padding-top: 5px;
-	color: #94b4d5;
+	color: #C9A45C;
 }
 
 body {
@@ -12,8 +13,8 @@ body {
 	padding: 0;
 	font-family: "Lucida Grande", "Lucida Sans", Verdana, Tahoma, sans-serif;
 	font-size: 9pt;
-	color: #000;
-	background-color: #fff;
+	color: #EDE6D6;
+	background-color: #07070B;
 }
 
 table {
@@ -35,16 +36,15 @@ tr, td, th {
 }
 
 h2 {
-	color: #444;
-	letter-spacing: -1px;
+	color: #EDE6D6;
+	letter-spacing: 0;
 }
 
 h3 {
-	/*font-style: italic;*/
 	font-weight: normal;
 	font-size: 120%;
-	color: #444;
-	border-bottom: 1px dotted #ddd;
+	color: #EDE6D6;
+	border-bottom: 1px dotted rgba(201,164,92,0.2);
 	text-transform: uppercase;
 }
 
@@ -55,6 +55,7 @@ h3:first-letter {
 p {
 	margin: 4px 0 8px 0;
 	padding: 0;
+	color: rgba(237,230,214,0.65);
 }
 
 a img {
@@ -62,7 +63,7 @@ a img {
 }
 
 a {
-	color: #4083c6;
+	color: #C9A45C;
 	text-decoration: none;
 }
 
@@ -70,20 +71,16 @@ input[type=text], input[type=password], input[type=file], textarea {
 	font-family: "Lucida Grande", "Lucida Sans", Verdana, Tahoma, sans-serif;
 	padding: 4px;
 	font-size: 10pt;
-	color: #444;
-	border: 1px solid #ddd;
+	color: #EDE6D6;
+	background-color: #151822;
+	border: 1px solid rgba(201,164,92,0.15);
 	outline-width: 0;
 }
 
 label:hover {
 	cursor: pointer;
+	color: #EDE6D6;
 }
-
-/*input[type=text]:hover, input[type=password]:hover, textarea:hover {
-	color: #46a;
-	background-color: #dee;
-	border: 1px solid #8ac;
-}*/
 
 .module-name {
 	font-weight: bold;
@@ -95,8 +92,10 @@ label:hover {
 	padding: 10px;
 	font-weight: bold;
 	font-size: 120%;
-	color: #fff;
-	background-color: #333;
+	color: #C9A45C;
+	background-color: rgba(201,164,92,0.08);
+	border: 1px solid rgba(201,164,92,0.2);
+	border-radius: 6px;
 }
 
 .notice {
@@ -104,9 +103,10 @@ label:hover {
 	padding: 10px;
 	font-weight: normal;
 	font-size: 120%;
-	color: #204a87;
-	background-color: #F0FFFF;
-	border: 1px solid #87CEEB;
+	color: #FF7A1A;
+	background-color: rgba(255,122,26,0.06);
+	border: 1px solid rgba(255,122,26,0.2);
+	border-radius: 6px;
 }
 
 .center {
@@ -132,11 +132,11 @@ label:hover {
 	font-size: 10pt;
 	border-width: 0 13px 0 11px;
 	border-style: solid;
-	border-color: #8b8b8b;
+	border-color: #1C1F2E;
 }
 
 #admin_sidebar th.menuitem {
-	background-color: #303030;
+	background-color: #151822;
 }
 
 #admin_sidebar th.menuitem strong {
@@ -145,33 +145,32 @@ label:hover {
 	padding: 10px 0 2px 0;
 	font-size: 100%;
 	text-align: center;
-	color: #fff;
-	border-bottom: 1px solid #555;
+	color: #C9A45C;
+	border-bottom: 1px solid rgba(201,164,92,0.15);
 }
 
 #admin_sidebar td.menuitem a {
 	margin: 0 auto;
 	display: block;
 	padding: 2px 5px 4px 18px;
-	color: #fff;
-	background-color: #303030;
+	color: rgba(237,230,214,0.65);
+	background-color: #151822;
 	text-align: left;
-	text-shadow: #000 1pt 1pt;
+	text-shadow: none;
 	text-decoration: none;
 }
 
 #admin_sidebar td.menuitem a:hover {
-	color: #fff;
-	background-color: #4a5259;
-	text-shadow: #4a5259 1pt 1pt;
+	color: #EDE6D6;
+	background-color: #1C1F2E;
+	text-shadow: none;
 }
 
 #admin_sidebar td.menuitem a span {
-	/*display: block;*/
 }
 
 #sidebar td.sidebar-left, #sidebar td.sidebar-right {
-	background-color: #e6f0fa;
+	background-color: #0F1118;
 }
 
 #sidebar td.menuitem, #sidebar th.menuitem {
@@ -179,12 +178,11 @@ label:hover {
 	font-size: 10pt;
 	border-width: 0 13px 0 11px;
 	border-style: solid;
-	border-color: #c4d9ee;
+	border-color: #1C1F2E;
 }
 
-
 #sidebar th.menuitem {
-	background-color: #94b4d5;
+	background-color: #151822;
 }
 
 #sidebar th.menuitem strong {
@@ -193,25 +191,25 @@ label:hover {
 	padding: 10px 0 2px 0;
 	font-size: 100%;
 	text-align: center;
-	color: #fff;
-	border-bottom: 1px solid #c4d9ee;
+	color: #C9A45C;
+	border-bottom: 1px solid rgba(201,164,92,0.15);
 }
 
 #sidebar td.menuitem a {
 	margin: 0 auto;
 	display: block;
 	padding: 2px 5px 4px 18px;
-	color: #fff;
-	background-color: #94b4d5;
+	color: rgba(237,230,214,0.65);
+	background-color: #151822;
 	text-align: left;
-	text-shadow: #708fae 1pt 1pt;
+	text-shadow: none;
 	text-decoration: none;
 }
 
 #sidebar td.menuitem a:hover {
-	color: #fff;
-	background-color: #708fae;
-	text-shadow: #708fae 1pt 1pt;
+	color: #EDE6D6;
+	background-color: #1C1F2E;
+	text-shadow: none;
 }
 
 #sidebar td.menuitem a span {
@@ -223,8 +221,8 @@ label:hover {
 	padding: 2px;
 	font-family: Monaco, "Lucida Console", "Bitsteam Vera Sans Mono", monospace;
 	font-size: 8pt;
-	background-color: #fff;
-	border: 1px solid #eee;
+	background-color: #151822;
+	border: 1px solid rgba(201,164,92,0.1);
 }
 
 .keyword {
@@ -237,8 +235,10 @@ label:hover {
 	padding: 10px;
 	font-weight: bold;
 	font-size: 120%;
-	color: #fff;
-	background-color: #f00;
+	color: #E85A3E;
+	background-color: rgba(217,72,43,0.08);
+	border-left: 3px solid #D9482B;
+	border-radius: 4px;
 }
 
 .green {
@@ -246,25 +246,28 @@ label:hover {
 	padding: 10px;
 	font-weight: bold;
 	font-size: 120%;
-	color: #fff;
-	background-color: #0c0;
+	color: #5cb85c;
+	background-color: rgba(92,184,92,0.08);
+	border-left: 3px solid #5cb85c;
+	border-radius: 4px;
 }
 
 .note {
 	padding: 5px;
-	color: #444;
-	background-color: #eaeaea;
+	color: rgba(237,230,214,0.65);
+	background-color: rgba(201,164,92,0.04);
 	font-style: italic;
+	border-radius: 4px;
 }
 
 .up {
 	font-weight: bold;
-	color: #0f0;
+	color: #5cb85c;
 	text-transform: uppercase;
 }
 
 .down {
-	color: #f00;
+	color: #D9482B;
 	text-transform: uppercase;
 }
 
@@ -272,24 +275,25 @@ label:hover {
 	display: block;
 	margin: 10px;
 	padding: 5px;
-	background-color: #eee;
-	border: 1px solid #ccc;
+	background-color: #151822;
+	border: 1px solid rgba(201,164,92,0.15);
+	border-radius: 4px;
 }
 
 .submit_button:hover {
-	color: #fff;
-	background-color: #333;
-	border: 1px solid #111;
+	color: #EDE6D6;
+	background-color: #1C1F2E;
+	border: 1px solid rgba(201,164,92,0.25);
 	cursor: pointer;
 }
 
 .install_table th, .install_table td {
 	padding: 5px 10px;
-	border: 1px solid #ddd;
+	border: 1px solid rgba(201,164,92,0.1);
 }
 
 .install_table th {
-	background-color: #eef;
+	background-color: #1A0D12;
 }
 
 .install_table td {
@@ -298,25 +302,25 @@ label:hover {
 }
 
 .created {
-	color: green;
+	color: #5cb85c;
 	width: 80px;
 }
 
 .missing {
-	color: red;
+	color: #D9482B;
 	width: 80px;
 }
 
 .pages {
 	margin-top: 20px;
 	padding-top: 10px;
-	color: #ccc;
+	color: rgba(237,230,214,0.4);
 	text-align: center;
-	border-top: 1px solid #ddd;
+	border-top: 1px solid rgba(201,164,92,0.1);
 }
 
 .pages .page-prev, .pages .page-next {
-	color: #94b4d5;
+	color: #C9A45C;
 }
 
 .pages .page-num {
@@ -324,7 +328,7 @@ label:hover {
 }
 
 .pages .current-page {
-	color: #000000;
+	color: #EDE6D6;
 	font-weight: bold;
 }
 
@@ -336,37 +340,39 @@ label:hover {
 
 .horizontal-table th {
 	padding: 5px 10px;
-	background-color: #eee;
+	background-color: #1A0D12;
+	color: #C9A45C;
 }
 
 .horizontal-table td {
 	padding: 5px 10px;
-	background-color: #fff;
+	background-color: #0F1118;
 }
 
 .horizontal-table th, .horizontal-table td {
 	font-size: 9pt;
-	border: 1px solid #ddd;
+	border: 1px solid rgba(201,164,92,0.1);
 }
 
 .vertical-table {
 	border-spacing: 0;
-	border-collapse: collapse;	
+	border-collapse: collapse;
 }
 
 .vertical-table th {
 	padding: 5px 10px;
-	background-color: #eee;
+	background-color: #1A0D12;
+	color: #C9A45C;
 }
 
 .vertical-table td {
 	padding: 5px 12px;
-	background-color: #fff;
+	background-color: #0F1118;
 }
 
 .vertical-table th, .vertical-table td {
 	font-size: 9pt;
-	border: 1px solid #ddd;
+	border: 1px solid rgba(201,164,92,0.1);
 }
 
 .vertical-table label {
@@ -383,7 +389,7 @@ label:hover {
 }
 
 .td-action {
-	color: #ccc;
+	color: rgba(237,230,214,0.4);
 	text-align: center;
 }
 
@@ -398,37 +404,37 @@ label:hover {
 
 .not-applicable {
 	font-style: italic;
-	color: #bbb;
+	color: rgba(237,230,214,0.35);
 }
 
 .state-pending {
-	color: orange;
+	color: #FF7A1A;
 }
 
 .state-banned {
-	color: red;
+	color: #D9482B;
 }
 
 .state-permanently-banned {
 	font-weight: bold;
-	color: red;
+	color: #D9482B;
 }
 
 .raw-txn-log {
 	padding: 10px;
 	font-family: "Monaco", "Lucida Console", "Courier New", monospace;
-	background-color: #fff;
-	border: 1px solid #ddd;
+	background-color: #151822;
+	border: 1px solid rgba(201,164,92,0.1);
 	width: 96%;
 	overflow: scroll;
 }
 
 .online {
-	color: #000;
+	color: #5cb85c;
 }
 
 .offline {
-	color: #aaa;
+	color: rgba(237,230,214,0.35);
 }
 
 .info-text-total {
@@ -442,10 +448,11 @@ label:hover {
 .info-text {
 	margin-bottom: 6px;
 	padding: 5px;
-	color: #666;
-	background-color: #fff;
-	border: 1px solid #ccc;
+	color: rgba(237,230,214,0.65);
+	background-color: #0F1118;
+	border: 1px solid rgba(201,164,92,0.1);
 	text-align: center;
+	border-radius: 4px;
 }
 
 .toggler {
@@ -454,22 +461,22 @@ label:hover {
 }
 
 .toggler a {
-	color: #26a;
+	color: #C9A45C;
 }
 
 .search-form, search-form2 {
 	display: none;
 	margin: 0 0 10px 0;
 	padding: 0;
-	border-top: 1px solid #ddd;
+	border-top: 1px solid rgba(201,164,92,0.1);
 }
 
 .search-form p, .search-form2 p {
 	margin: 0;
 	padding: 5px;
-	color: #aaa;
+	color: rgba(237,230,214,0.5);
 	text-align: left;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid rgba(201,164,92,0.08);
 }
 
 .search-form label, .search-form2 label {
@@ -477,7 +484,7 @@ label:hover {
 	margin: 0 0 3px 0;
 	font-size: 8pt;
 	font-style: italic;
-	color: #222;
+	color: rgba(237,230,214,0.65);
 }
 
 .search-form input[type=text], .search-form2 input[type=text] {
@@ -513,35 +520,35 @@ label:hover {
 }
 
 #submenu {
-	color: #bbb;
+	color: rgba(237,230,214,0.4);
 }
 
 #pagemenu {
 	margin-top: 5px;
 	padding: 5px 0;
 	font-size: 8pt;
-	color: #888;
+	color: rgba(237,230,214,0.4);
 	border-width: 1px 0;
 	border-style: dotted;
-	border-color: #ddd;
+	border-color: rgba(201,164,92,0.1);
 }
 
 #pagemenu a {
-	color: #777974;
+	color: #C9A45C;
 	text-decoration: underline;
 }
 
 #pagemenu a:hover {
-	color: #729fcf;
+	color: #D4B472;
 }
 
 #loginbox {
 	margin-bottom: 10px;
-	color: #555;
+	color: rgba(237,230,214,0.65);
 }
 
 #content {
-	color: #555;
+	color: rgba(237,230,214,0.65);
 }
 
 #register_form table td, #login_form table td {
@@ -565,18 +572,19 @@ label:hover {
 #server_status th, #server_status td {
 	padding: 8px 12px 8px 12px;
 	text-align: left;
-	border-bottom: 1px solid #ddd;	
+	border-bottom: 1px solid rgba(201,164,92,0.1);
 }
 
 #server_status {
 	border-spacing: 0;
 	border-collapse: collapse;
-	background-color: #fff;
-	border: 1px solid #ddd;
+	background-color: #0F1118;
+	border: 1px solid rgba(201,164,92,0.1);
+	border-radius: 6px;
 }
 
 #server_status .server {
-	color: #222;
+	color: #EDE6D6;
 }
 
 #server_status .status {
@@ -588,7 +596,7 @@ label:hover {
 	margin-bottom: 0px;
 	font-style: italic;
 	font-size: 8pt;
-	color: #ccc;
+	color: rgba(237,230,214,0.3);
 	text-align: right;
 }
 
@@ -597,23 +605,23 @@ label:hover {
 	margin-bottom: 0px;
 	font-style: italic;
 	font-size: 8pt;
-	color: #aaa;
+	color: rgba(237,230,214,0.3);
 	text-align: right;
 }
 
 .sortable {
-	color: #444;
+	color: #C9A45C;
 	text-decoration: underline;
 }
 
 .sortable:hover {
-	color: #000;
+	color: #D4B472;
 }
 
 .character-stats {
 	border-spacing: 0;
 	border-collapse: collapse;
-	color: #ccc;
+	color: rgba(237,230,214,0.5);
 }
 
 .character-stats td {
@@ -623,26 +631,27 @@ label:hover {
 }
 
 .character-stats .stat-name {
-	color: #666;
+	color: rgba(237,230,214,0.5);
 }
 
 .character-stats .stat-value {
-	color: #000;
+	color: #EDE6D6;
 }
 
 .credit-balance {
 	float: right;
 	display: inline-block;
 	padding: 10px;
-	color: #000;
-	background-color: #eee;
-	border: 1px dotted #ddd;
+	color: #C9A45C;
+	background-color: rgba(201,164,92,0.04);
+	border: 1px solid rgba(201,164,92,0.15);
+	border-radius: 6px;
 }
 
 .credit-balance .balance-text {
 	display: inline-block;
 	margin-right: 5px;
-	color: #bbb;
+	color: rgba(237,230,214,0.4);
 	text-transform: uppercase;
 }
 
@@ -654,7 +663,7 @@ label:hover {
 	margin: 0 0 2px 0;
 	padding: 0 0 2px 0;
 	font-size: 120%;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid rgba(201,164,92,0.1);
 }
 
 .emblem-server label {
@@ -679,8 +688,8 @@ label:hover {
 	display: inline-block;
 	margin: 0;
 	padding: 5px;
-	background-color: #eee;
-	border-right: 1px solid #ddd;
+	background-color: #1A0D12;
+	border-right: 1px solid rgba(201,164,92,0.1);
 }
 
 .script-line-code {
@@ -691,15 +700,15 @@ label:hover {
 
 .shop-table {
 	width: 100%;
-	color: #000;
+	color: #EDE6D6;
 	border-spacing: 0 10px;
 	border-collapse: separate;
 }
 
 .shop-table td {
 	padding: 10px;
-	background-color: #fff;
-	border: 1px solid #ddd;
+	background-color: #0F1118;
+	border: 1px solid rgba(201,164,92,0.1);
 }
 
 .shop-item-image {
@@ -712,38 +721,38 @@ label:hover {
 	margin: 0 0 5px 0;
 	padding: 0 0 2px 0;
 	font-size: 140%;
-	color: #222;
-	border-bottom: 1px solid #eee;
+	color: #EDE6D6;
+	border-bottom: 1px solid rgba(201,164,92,0.1);
 }
 
 .shop-item-cost-qty {
 	width: 150px;
-	color: #aaa;
+	color: rgba(237,230,214,0.5);
 	text-align: center;
 }
 
 .cost {
-	color: #000;
+	color: #C9A45C;
 	font-size: 120%;
 	font-weight: bold;
 	text-transform: uppercase;
 }
 
 .qty {
-	color: #000;
+	color: rgba(237,230,214,0.65);
 }
 
 .shop-item-action {
-	color: #ddd;
+	color: rgba(201,164,92,0.3);
 }
 
 .shop-item-action a {
-	color: #80a2c8;
-	border-bottom: 1px solid #eee;
+	color: #C9A45C;
+	border-bottom: 1px solid rgba(201,164,92,0.15);
 }
 
 .shop-item-action a:hover {
-	border-bottom: 1px solid #80a2c8;
+	border-bottom: 1px solid #C9A45C;
 }
 
 .short {
@@ -751,7 +760,7 @@ label:hover {
 }
 
 .shop-server-name {
-	color: #333;
+	color: #EDE6D6;
 }
 
 .shop-item-info {
@@ -766,9 +775,9 @@ textarea {
 .cart-items-text {
 	margin: 0 0 5px 0;
 	padding: 5px;
-	color: #ddd;
-	background-color: #888;
-	border: 5px solid #777;
+	color: rgba(237,230,214,0.65);
+	background-color: #1A0D12;
+	border: 5px solid #151822;
 }
 
 .cart-info-text {
@@ -782,18 +791,18 @@ textarea {
 }
 
 .cart-item-name {
-	color: #fff;
-	border-bottom: 1px dotted #aaa;
+	color: #EDE6D6;
+	border-bottom: 1px dotted rgba(201,164,92,0.2);
 }
 
 .cart-item-count {
 	font-size: 120%;
 	font-weight: bold;
-	color: #000;
+	color: #C9A45C;
 }
 
 .cart-sub-total {
-	color: #000;
+	color: #EDE6D6;
 }
 
 .cart {
@@ -820,12 +829,12 @@ textarea {
 }
 
 .checkout-text a {
-	border-bottom: 1px dotted #ccc;
+	border-bottom: 1px dotted rgba(201,164,92,0.2);
 }
 
 .checkout-text a:hover {
-	color: #000;
-	border-bottom: 1px solid #aaa;
+	color: #D4B472;
+	border-bottom: 1px solid #C9A45C;
 }
 
 .enter-donation-amount {
@@ -844,18 +853,18 @@ textarea {
 .credit-amount-text {
 	font-size: 8pt;
 	text-transform: uppercase;
-	color: #bbb;
+	color: rgba(237,230,214,0.4);
 	text-align: center;
 	letter-spacing: 1px;
 }
 
 .donation-amount {
 	font-weight: bold;
-	color: #000;
+	color: #C9A45C;
 }
 
 .credit-amount {
-	color: #555;
+	color: rgba(237,230,214,0.65);
 }
 
 .reset-amount-text {
@@ -871,18 +880,18 @@ textarea {
 }
 
 .remaining-balance {
-	color: #000;
+	color: #C9A45C;
 }
 
 .exchange-rate {
 	font-size: 120%;
 	font-weight: bold;
-	color: #000;
+	color: #EDE6D6;
 }
 
 .important {
 	font-size: 120%;
-	color: #000;
+	color: #FF7A1A;
 }
 
 .important .server-name {
@@ -923,7 +932,7 @@ textarea {
 
 .generic-form-table td p {
 	margin: 6px 5px;
-	color: inherit;
+	color: rgba(237,230,214,0.5);
 }
 
 .security-code {
@@ -934,20 +943,20 @@ textarea {
 }
 
 .action {
-	color: #ddd;
+	color: rgba(201,164,92,0.3);
 }
 
 .action a, .action span.anchor {
-	color: #80a2c8;
-	border-bottom: 1px solid #eee;
+	color: #C9A45C;
+	border-bottom: 1px solid rgba(201,164,92,0.15);
 	cursor: pointer;
 }
 
 .block-link {
 	display: block;
 	padding: 3px;
-	color: #80a2c8;
-	border-bottom: 1px solid #eee;
+	color: #C9A45C;
+	border-bottom: 1px solid rgba(201,164,92,0.1);
 }
 
 .button-action {
@@ -958,8 +967,9 @@ textarea {
 .woe-table {
 	border-spacing: 0;
 	border-collapse: collapse;
-	background-color: #fff;
-	border: 1px solid #ddd;
+	background-color: #0F1118;
+	border: 1px solid rgba(201,164,92,0.1);
+	border-radius: 6px;
 }
 
 .woe-table th, .woe-table td {
@@ -968,7 +978,8 @@ textarea {
 
 .woe-table th {
 	font-weight: normal;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid rgba(201,164,92,0.1);
+	color: #C9A45C;
 }
 
 .woe-table td {
@@ -977,11 +988,12 @@ textarea {
 
 .woe-table .server {
 	font-weight: bold;
+	color: #EDE6D6;
 }
 
 .woe-table .time {
 	font-style: italic;
-	color: #333;
+	color: rgba(237,230,214,0.65);
 }
 
 .script {
@@ -1005,13 +1017,13 @@ textarea {
 
 .top-ranked td {
 	font-weight: bold;
-	color: #000;
-	background-color: #FFF8DC;
+	color: #C9A45C;
+	background-color: rgba(201,164,92,0.06);
 }
 
 .top-ranked a {
-	color: #000;
-	border-bottom: 1px dotted #666;
+	color: #C9A45C;
+	border-bottom: 1px dotted rgba(201,164,92,0.3);
 }
 
 .empty-row {
@@ -1019,19 +1031,19 @@ textarea {
 }
 
 .item-drop-mvp td {
-	color: #000;
-	background-color: #F8F8FF;
+	color: #E85A3E;
+	background-color: rgba(217,72,43,0.06);
 }
 
 .item-drop-card td {
-	color: #000;
-	background-color: #F0FFFF;
+	color: #C9A45C;
+	background-color: rgba(201,164,92,0.04);
 }
 
 .mvp {
 	font-size: xx-small;
 	font-weight: bold;
-	color: #ff0000;
+	color: #D9482B;
 	vertical-align: top;
 }
 
@@ -1043,11 +1055,11 @@ textarea {
 
 .monster-mode li {
 	padding: 1px;
-	border-bottom: 1px dotted #eee;
+	border-bottom: 1px dotted rgba(201,164,92,0.08);
 }
 
 .equipped td {
-	background-color: #f1ffff;
+	background-color: rgba(201,164,92,0.04);
 }
 
 .job-classes {
@@ -1056,7 +1068,7 @@ textarea {
 
 .job-classes td {
 	padding-right: 10px;
-	border-right: 1px solid #eee;
+	border-right: 1px solid rgba(201,164,92,0.1);
 }
 
 .current-shop-category {
@@ -1064,7 +1076,7 @@ textarea {
 }
 
 .normalslotted .equipped {
-	color: #25292b;
+	color: rgba(237,230,214,0.65);
 }
 
 .overslotted1 {
@@ -1086,4 +1098,54 @@ textarea {
 .hold-hours {
 	color: #ffba00;
 	font-style: italic;
+}
+
+/* ===== News classes (missing from original flux.css) ===== */
+.newsDiv {
+	margin-bottom: 10px;
+}
+
+.newsCont {
+	padding: 10px 0;
+	border-bottom: 1px solid rgba(201,164,92,0.08);
+	color: rgba(237,230,214,0.65);
+}
+
+.newsDate {
+	color: rgba(237,230,214,0.35);
+}
+
+.news_link {
+	color: #D9482B;
+}
+.news_link:hover {
+	color: #FF7A1A;
+}
+
+.clear {
+	clear: both;
+}
+
+/* ===== Item status classes ===== */
+.refineable.yes, .for-sale.yes, .identified.yes {
+	color: #5cb85c;
+}
+.refineable.no, .for-sale.no, .identified.no {
+	color: rgba(237,230,214,0.35);
+}
+.broken.yes {
+	color: #D9482B;
+}
+.broken.no {
+	color: rgba(237,230,214,0.35);
+}
+.item_name {
+	color: #EDE6D6;
+}
+
+/* ===== Select element dark theme ===== */
+select {
+	background-color: #151822;
+	color: #EDE6D6;
+	border: 1px solid rgba(201,164,92,0.15);
 }
