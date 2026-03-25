@@ -1612,7 +1612,7 @@ body.kr-body .generic-form-table tr:last-child td {
 	border-bottom: none !important;
 }
 
-/* --- Force input consistency + dark theme inside form tables --- */
+/* --- Force input consistency --- */
 body.kr-body .generic-form-table input[type="text"],
 body.kr-body .generic-form-table input[type="password"],
 body.kr-body .generic-form-table input[type="email"],
@@ -1622,11 +1622,6 @@ body.kr-body .generic-form-table textarea {
 	max-width: 100% !important;
 	box-sizing: border-box !important;
 	display: block !important;
-	background: var(--kr-bg-elevated) !important;
-	color: var(--kr-text-primary) !important;
-	border: 1px solid var(--kr-border-default) !important;
-	border-radius: var(--kr-radius-md) !important;
-	padding: 0.625rem 0.875rem !important;
 }
 
 body.kr-body .generic-form-table select {
@@ -1634,11 +1629,6 @@ body.kr-body .generic-form-table select {
 	max-width: 100% !important;
 	box-sizing: border-box !important;
 	display: block !important;
-	background: var(--kr-bg-elevated) !important;
-	color: var(--kr-text-primary) !important;
-	border: 1px solid var(--kr-border-default) !important;
-	border-radius: var(--kr-radius-md) !important;
-	padding: 0.625rem 0.875rem !important;
 }
 
 /* --- Multi-field rows (date selects, inline fields) --- */
@@ -1682,38 +1672,18 @@ body.kr-body .generic-form-table td div {
 }
 body.kr-body #content {
 	color: var(--kr-text-primary) !important;
-	background: transparent !important;
 }
 body.kr-body p {
 	color: var(--kr-text-secondary);
 }
 body.kr-body h2 {
 	color: var(--kr-cream) !important;
-	letter-spacing: 0 !important;
 }
 body.kr-body label {
 	color: var(--kr-text-secondary);
 }
-body.kr-body label:hover {
-	color: var(--kr-text-primary);
-}
 body.kr-body strong {
 	color: var(--kr-text-primary);
-}
-
-/* Kill any bgcolor attribute leaks and white backgrounds */
-body.kr-body [bgcolor] {
-	background-color: transparent !important;
-}
-body.kr-body .generic-form-table td[bgcolor],
-body.kr-body .generic-form-table th[bgcolor] {
-	background-color: transparent !important;
-}
-
-/* Ensure third column in resetpass/resend is visible */
-body.kr-body .generic-form-table td:nth-child(3) p {
-	color: var(--kr-text-muted) !important;
-	font-size: 0.8125rem;
 }
 body.kr-body .action a {
 	color: var(--kr-gold) !important;
@@ -1892,22 +1862,22 @@ body.kr-body input[type="number"],
 body.kr-body input[type="file"],
 body.kr-body textarea,
 body.kr-body select {
-	background: var(--kr-bg-elevated) !important;
-	color: var(--kr-text-primary) !important;
-	border: 1px solid var(--kr-border-default) !important;
-	border-radius: var(--kr-radius-md) !important;
-	padding: 0.625rem 0.875rem !important;
-	font-family: var(--kr-font-body) !important;
-	font-size: 0.875rem !important;
-	transition: all var(--kr-ease) !important;
-	outline: none !important;
+	background: var(--kr-bg-elevated);
+	color: var(--kr-text-primary);
+	border: 1px solid var(--kr-border-default);
+	border-radius: var(--kr-radius-md);
+	padding: 0.625rem 0.875rem;
+	font-family: var(--kr-font-body);
+	font-size: 0.875rem;
+	transition: all var(--kr-ease);
+	outline: none;
 }
 body.kr-body input[type="text"]:hover,
 body.kr-body input[type="password"]:hover,
 body.kr-body input[type="email"]:hover,
 body.kr-body select:hover,
 body.kr-body textarea:hover {
-	border-color: var(--kr-border-strong) !important;
+	border-color: var(--kr-border-strong);
 }
 body.kr-body input:focus,
 body.kr-body textarea:focus,
@@ -1922,13 +1892,13 @@ body.kr-body .kr-input--focused {
 body.kr-body input[type="submit"],
 body.kr-body input[type="button"],
 body.kr-body button:not(.kr-nav-toggle):not(.kr-sidebar-toggle) {
-	background: linear-gradient(135deg, var(--kr-red), var(--kr-orange)) !important;
-	color: var(--kr-white) !important;
-	border: none !important;
-	border-radius: var(--kr-radius-md) !important;
-	padding: 0.625rem 1.5rem !important;
-	font-family: var(--kr-font-heading) !important;
-	font-size: 0.875rem !important;
+	background: linear-gradient(135deg, var(--kr-red), var(--kr-orange));
+	color: var(--kr-white);
+	border: none;
+	border-radius: var(--kr-radius-md);
+	padding: 0.625rem 1.5rem;
+	font-family: var(--kr-font-heading);
+	font-size: 0.875rem;
 	font-weight: 600;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
