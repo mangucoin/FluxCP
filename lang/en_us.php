@@ -841,7 +841,7 @@ return array(
 	'KunaiROHeroTagline'        => 'Where War Matters',
 	'KunaiROHeroDescription'    => 'Competitive Pre-Renewal server with a living economy and real progression.',
 	'KunaiROBadgePreRenewal'    => 'Pre-Renewal',
-	'KunaiROBadgeRates'         => '75x / 75x / 20x',
+	'KunaiROBadgeRates'         => '250x / 250x / 50x',
 	'KunaiROBadgeNoPTW'         => 'No Pay-to-Win',
 	'KunaiROBtnPlay'            => 'Play Now',
 	'KunaiROBtnRegister'        => 'Create Account',
@@ -857,7 +857,7 @@ return array(
 	'KunaiROStatsWoEActive'     => 'Active',
 	'KunaiROStatsUptimeLabel'   => 'Uptime',
 	'KunaiROStatsRatesLabel'    => 'Rates',
-	'KunaiROStatsRatesValue'    => '75x / 75x / 20x',
+	'KunaiROStatsRatesValue'    => '250x / 250x / 50x',
 
 	// KunaiRO — Why section
 	'KunaiROWhyHeading'             => 'Why KunaiRO',
