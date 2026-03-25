@@ -1550,15 +1550,10 @@ body.kr-body .kr-main--full tr:hover td {
    23. FORMS — Table alignment fix + premium styling
    -------------------------------------------------------------------------- */
 
-/* --- Form container — kill white bg/border from flux.css --- */
+/* --- Form container --- */
 body.kr-body .generic-form,
 body.kr-body .generic-form-div {
 	max-width: 600px;
-	background-color: transparent !important;
-	background: transparent !important;
-	border: none !important;
-	box-shadow: none !important;
-	padding: 0 !important;
 }
 
 /* --- Table structure --- */
