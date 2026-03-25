@@ -31,8 +31,8 @@
 				<div class="kr-footer__col">
 					<h4 class="kr-footer__col-title"><?php echo htmlspecialchars(Flux::message('AccountLabel')) ?></h4>
 					<div class="kr-footer__nav">
-						<a href="<?php echo $this->url('account', 'create') ?>"><?php echo htmlspecialchars(Flux::message('CreateAccountLabel')) ?></a>
-						<a href="<?php echo $this->url('account', 'login') ?>"><?php echo htmlspecialchars(Flux::message('AccountLoginLabel')) ?></a>
+						<a href="<?php echo $this->url('account', 'create') ?>"><?php echo htmlspecialchars(Flux::message('AccountCreateHeading')) ?></a>
+						<a href="<?php echo $this->url('account', 'login') ?>"><?php echo htmlspecialchars(Flux::message('LoginTitle')) ?></a>
 						<a href="<?php echo $this->url('item') ?>"><?php echo htmlspecialchars(Flux::message('DatabaseLabel')) ?></a>
 					</div>
 				</div>

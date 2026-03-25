@@ -2,7 +2,9 @@
 <?php
 $adminMenuItems = $this->getAdminMenuItems();
 $menuItems = $this->getMenuItems();
-$isHomepage = ($params->get('module') == 'main' && in_array($params->get('action'), array('index', null, '')));
+$_krModule = $params->get('module');
+$_krAction = $params->get('action');
+$isHomepage = ($_krModule == 'main' && (!$_krAction || $_krAction == 'index'));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,21 +109,21 @@ $isHomepage = ($params->get('module') == 'main' && in_array($params->get('action
 				<!-- Horizontal nav links -->
 				<div class="kr-navbar__nav">
 					<a href="<?php echo $this->url('main') ?>" class="kr-navbar__link<?php if ($isHomepage) echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('HomeLabel')) ?></a>
-					<a href="<?php echo $this->url('news') ?>" class="kr-navbar__link<?php if ($params->get('module') == 'news') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('NewsLabel')) ?></a>
-					<a href="<?php echo $this->url('ranking', 'character') ?>" class="kr-navbar__link<?php if ($params->get('module') == 'ranking') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('RankingInfoLabel')) ?></a>
-					<a href="<?php echo $this->url('server', 'status') ?>" class="kr-navbar__link<?php if ($params->get('module') == 'server') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('ServerStatusLabel')) ?></a>
-					<a href="<?php echo $this->url('woe') ?>" class="kr-navbar__link<?php if ($params->get('module') == 'woe') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('WoeHoursLabel')) ?></a>
-					<a href="<?php echo $this->url('item') ?>" class="kr-navbar__link<?php if ($params->get('module') == 'item') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('DatabaseLabel')) ?></a>
+					<a href="<?php echo $this->url('news') ?>" class="kr-navbar__link<?php if ($_krModule == 'news') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('NewsLabel')) ?></a>
+					<a href="<?php echo $this->url('ranking', 'character') ?>" class="kr-navbar__link<?php if ($_krModule == 'ranking') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('RankingInfoLabel')) ?></a>
+					<a href="<?php echo $this->url('server', 'status') ?>" class="kr-navbar__link<?php if ($_krModule == 'server') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('ServerStatusLabel')) ?></a>
+					<a href="<?php echo $this->url('woe') ?>" class="kr-navbar__link<?php if ($_krModule == 'woe') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('WoeHoursLabel')) ?></a>
+					<a href="<?php echo $this->url('item') ?>" class="kr-navbar__link<?php if ($_krModule == 'item') echo ' kr-navbar__link--active' ?>"><?php echo htmlspecialchars(Flux::message('DatabaseLabel')) ?></a>
 				</div>
 
 				<!-- Right actions -->
 				<div class="kr-navbar__actions">
 					<?php if ($session->isLoggedIn()): ?>
 						<a href="<?php echo $this->url('account', 'view') ?>" class="kr-navbar__user-link"><?php echo htmlspecialchars($session->account->userid) ?></a>
-						<a href="<?php echo $this->url('account', 'logout') ?>" class="kr-btn kr-btn--sm kr-btn--ghost" onclick="return confirm('Are you sure you want to logout?')"><?php echo htmlspecialchars(Flux::message('LogoutLabel')) ?></a>
+						<a href="<?php echo $this->url('account', 'logout') ?>" class="kr-btn kr-btn--sm kr-btn--ghost" onclick="return confirm('Are you sure you want to logout?')"><?php echo htmlspecialchars(Flux::message('LogoutTitle')) ?></a>
 					<?php else: ?>
-						<a href="<?php echo $this->url('account', 'login') ?>" class="kr-btn kr-btn--sm kr-btn--ghost"><?php echo htmlspecialchars(Flux::message('AccountLoginLabel')) ?></a>
-						<a href="<?php echo $this->url('account', 'create') ?>" class="kr-btn kr-btn--sm kr-btn--primary"><?php echo htmlspecialchars(Flux::message('CreateAccountLabel')) ?></a>
+						<a href="<?php echo $this->url('account', 'login') ?>" class="kr-btn kr-btn--sm kr-btn--ghost"><?php echo htmlspecialchars(Flux::message('LoginTitle')) ?></a>
+						<a href="<?php echo $this->url('account', 'create') ?>" class="kr-btn kr-btn--sm kr-btn--primary"><?php echo htmlspecialchars(Flux::message('AccountCreateHeading')) ?></a>
 					<?php endif ?>
 					<!-- Mobile toggle -->
 					<button class="kr-nav-toggle" aria-label="Menu">
@@ -137,10 +139,10 @@ $isHomepage = ($params->get('module') == 'main' && in_array($params->get('action
 			<div class="kr-userbar__inner">
 				<span class="kr-userbar__info">
 					<?php echo htmlspecialchars($session->account->userid) ?> &mdash; <?php echo htmlspecialchars($session->serverName) ?>
-					<?php if (count($athenaServerNames=$session->getAthenaServerNames()) > 1): ?>
+					<?php $athenaServerNames = $session->getAthenaServerNames(); if (is_array($athenaServerNames) && count($athenaServerNames) > 1): ?>
 					<select name="preferred_server" onchange="updatePreferredServer(this)" class="kr-select kr-select--inline">
 						<?php foreach ($athenaServerNames as $serverName): ?>
-						<option value="<?php echo htmlspecialchars($serverName) ?>"<?php if ($server->serverName == $serverName) echo ' selected="selected"' ?>><?php echo htmlspecialchars($serverName) ?></option>
+						<option value="<?php echo htmlspecialchars($serverName) ?>"<?php if (isset($server) && $server && $server->serverName == $serverName) echo ' selected="selected"' ?>><?php echo htmlspecialchars($serverName) ?></option>
 						<?php endforeach ?>
 					</select>
 					<?php endif ?>
@@ -167,11 +169,9 @@ $isHomepage = ($params->get('module') == 'main' && in_array($params->get('action
 		<?php else: ?>
 		<!-- ===== INTERNAL PAGE: With sidebar ===== -->
 		<div class="kr-page kr-page--internal">
-			<?php if (!$isHomepage): ?>
 			<button class="kr-sidebar-toggle" aria-label="Sidebar">
 				<span></span><span></span><span></span>
 			</button>
-			<?php endif ?>
 			<!-- Sidebar for internal pages -->
 			<aside class="kr-sidebar">
 				<?php if (!empty($adminMenuItems) && !Flux::config('AdminMenuNewStyle')): ?>
