@@ -889,5 +889,15 @@ return array(
 	'KunaiROSubCart'                => 'Go to Shopping Cart',
 	'KunaiROSubListAccounts'        => 'List Accounts',
 
+	// KunaiRO — Purchase/Donate submenu
+	'KunaiROSubShop'                => 'Shop',
+	'KunaiROSubGoToCart'            => 'Go to Cart',
+	'KunaiROSubCheckout'            => 'Checkout',
+	'KunaiROSubEmptyCart'           => 'Empty Cart',
+	'KunaiROSubPending'             => 'Pending Redemption',
+	'KunaiROSubDonate'              => 'Make a Donation',
+	'KunaiROSubDonateHistory'       => 'Donation History',
+	'KunaiROSubTrustedPaypal'       => 'Trusted PayPal E-mails',
+
 );
 ?>

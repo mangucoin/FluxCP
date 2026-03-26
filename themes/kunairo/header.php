@@ -213,6 +213,7 @@ $isHomepage = ($_krModule == 'main' && (!$_krAction || $_krAction == 'index'));
 				$subMenuItems = $this->getSubMenuItems();
 				// Map config submenu names to translatable keys
 				$_krSubMap = array(
+					// Account
 					'Login'                      => 'KunaiROSubLogin',
 					'Register'                   => 'KunaiROSubRegister',
 					'Reset Password'             => 'KunaiROSubResetPass',
@@ -225,6 +226,16 @@ $isHomepage = ($_krModule == 'main' && (!$_krAction || $_krAction == 'index'));
 					'Credit Transfer History'    => 'KunaiROSubXferLog',
 					'Go to Shopping Cart'        => 'KunaiROSubCart',
 					'List Accounts'              => 'KunaiROSubListAccounts',
+					// Purchase
+					'Shop'                       => 'KunaiROSubShop',
+					'Go to Cart'                 => 'KunaiROSubGoToCart',
+					'Checkout'                   => 'KunaiROSubCheckout',
+					'Empty Cart'                 => 'KunaiROSubEmptyCart',
+					'Pending Redemption'         => 'KunaiROSubPending',
+					// Donate
+					'Make a Donation'            => 'KunaiROSubDonate',
+					'Donation History'           => 'KunaiROSubDonateHistory',
+					'Trusted PayPal E-mails'     => 'KunaiROSubTrustedPaypal',
 				);
 				?>
 				<?php if (!empty($subMenuItems)): ?>
