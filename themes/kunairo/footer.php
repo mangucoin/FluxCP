@@ -51,7 +51,7 @@
 						</div>
 						<?php endif ?>
 						<div class="kr-footer__selector">
-							<label>Language</label>
+							<label><?php echo htmlspecialchars(Flux::message('Language')) ?></label>
 							<select name="preferred_language" onchange="updatePreferredLanguage(this)" class="kr-select kr-select--sm">
 								<?php foreach (Flux::getAvailableLanguages() as $lang_key => $lang): ?>
 								<option value="<?php echo htmlspecialchars($lang_key) ?>"<?php if (!empty($_COOKIE['language']) && $_COOKIE['language'] == $lang_key) echo ' selected="selected"' ?>><?php echo htmlspecialchars($lang) ?></option>
