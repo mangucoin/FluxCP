@@ -67,8 +67,7 @@
 				<div class="kr-footer__bottom-inner">
 					<?php if (Flux::config('ShowCopyright')): ?>
 					<span class="kr-footer__copyright">
-						Powered by <a href="https://github.com/rathena/FluxCP" target="_blank" rel="noopener">FluxCP</a>
-						&mdash; <?php echo htmlspecialchars(Flux::message('KunaiROFooterCopyright')) ?>
+						&copy; Xponzy Network &mdash; <?php echo htmlspecialchars(Flux::message('KunaiROFooterCopyright')) ?>
 					</span>
 					<?php endif ?>
 					<?php if (Flux::config('ShowRenderDetails')): ?>
