@@ -51,42 +51,49 @@
 	<div class="kr-hero__fade"></div>
 </section>
 
-<!-- ===== STATS — 3x2 grid, all real data ===== -->
+<!-- ===== STATS BAR — 6 cards, all real data ===== -->
 <?php
-$_krDN = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
-$_krDM = array(
+$_krDayNames = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+$_krDayMap = array(
 	'Sunday' => Flux::message('KunaiRODaySunday'), 'Monday' => Flux::message('KunaiRODayMonday'),
 	'Tuesday' => Flux::message('KunaiRODayTuesday'), 'Wednesday' => Flux::message('KunaiRODayWednesday'),
 	'Thursday' => Flux::message('KunaiRODayThursday'), 'Friday' => Flux::message('KunaiRODayFriday'),
 	'Saturday' => Flux::message('KunaiRODaySaturday'),
 );
-$_krPlayers = 0; $_krIsOnline = false; $_krIsWoe = false; $_krWoe = array();
+
+// Server data
+$_krPlayers = 0;
+$_krIsOnline = false;
+$_krIsWoe = false;
+$_krWoeSchedule = array();
 try {
 	foreach (Flux::$loginAthenaGroupRegistry as $_g) {
 		$_krIsOnline = $_g->loginServer->isUp();
 		foreach ($_g->athenaServers as $_a) {
 			$_s = $_g->connection->getStatement("SELECT COUNT(char_id) AS c FROM {$_a->charMapDatabase}.`char` WHERE `online`>'0'");
-			$_s->execute(); $_r = $_s->fetch();
+			$_s->execute();
+			$_r = $_s->fetch();
 			if ($_r) $_krPlayers += intval($_r->c);
 			if ($_a->isWoe()) $_krIsWoe = true;
 			if ($_a->woeDayTimes) {
 				foreach ($_a->woeDayTimes as $_t) {
-					$_krWoe[] = array(
-						'day'   => isset($_krDM[$_krDN[$_t['startingDay']]]) ? $_krDM[$_krDN[$_t['startingDay']]] : $_krDN[$_t['startingDay']],
-						'start' => $_t['startingTime'],
-						'end'   => $_t['endingTime']
-					);
+					$_sd = isset($_krDayMap[$_krDayNames[$_t['startingDay']]]) ? $_krDayMap[$_krDayNames[$_t['startingDay']]] : $_krDayNames[$_t['startingDay']];
+					$_ed = isset($_krDayMap[$_krDayNames[$_t['endingDay']]]) ? $_krDayMap[$_krDayNames[$_t['endingDay']]] : $_krDayNames[$_t['endingDay']];
+					$_krWoeSchedule[] = $_sd . ' ' . $_t['startingTime'] . '–' . $_t['endingTime'];
 				}
 			}
 		}
 	}
 } catch (Exception $e) {}
-$_krDay = isset($_krDM[$server->getServerTime('l')]) ? $_krDM[$server->getServerTime('l')] : $server->getServerTime('l');
+
+$_krServerTime = $server->getServerTime('H:i:s');
+$_krServerDayEn = $server->getServerTime('l');
+$_krServerDayLocal = isset($_krDayMap[$_krServerDayEn]) ? $_krDayMap[$_krServerDayEn] : $_krServerDayEn;
 ?>
 <section class="kr-stats">
 	<div class="kr-container">
-		<div class="kr-stats__grid kr-stats__grid--3x2">
-			<!-- Row 1 -->
+		<div class="kr-stats__grid kr-stats__grid--6">
+			<!-- 1. Players online -->
 			<div class="kr-stats__item">
 				<span class="kr-stats__icon">&#9876;</span>
 				<div class="kr-stats__data">
@@ -94,6 +101,15 @@ $_krDay = isset($_krDM[$server->getServerTime('l')]) ? $_krDM[$server->getServer
 					<span class="kr-stats__label"><?php echo htmlspecialchars(Flux::message('KunaiROStatsPlayersLabel')) ?></span>
 				</div>
 			</div>
+			<!-- 2. Server time -->
+			<div class="kr-stats__item">
+				<span class="kr-stats__icon">&#9201;</span>
+				<div class="kr-stats__data">
+					<span class="kr-stats__value" id="kr-server-clock"><?php echo htmlspecialchars($server->getServerTime('H:i')) ?></span>
+					<span class="kr-stats__label"><?php echo htmlspecialchars($_krServerDayLocal) ?> &mdash; <?php echo htmlspecialchars(Flux::message('KunaiROStatsServerTimeLabel')) ?></span>
+				</div>
+			</div>
+			<!-- 3. Server status -->
 			<div class="kr-stats__item">
 				<span class="kr-stats__icon">&#9889;</span>
 				<div class="kr-stats__data">
@@ -101,14 +117,7 @@ $_krDay = isset($_krDM[$server->getServerTime('l')]) ? $_krDM[$server->getServer
 					<span class="kr-stats__label"><?php echo htmlspecialchars(Flux::message('KunaiROStatsServerStatus')) ?></span>
 				</div>
 			</div>
-			<div class="kr-stats__item">
-				<span class="kr-stats__icon">&#9201;</span>
-				<div class="kr-stats__data">
-					<span class="kr-stats__value" id="kr-server-clock"><?php echo htmlspecialchars($server->getServerTime('H:i')) ?></span>
-					<span class="kr-stats__label"><?php echo htmlspecialchars($_krDay) ?> &mdash; <?php echo htmlspecialchars(Flux::message('KunaiROStatsServerTimeLabel')) ?></span>
-				</div>
-			</div>
-			<!-- Row 2 -->
+			<!-- 4. WoE status -->
 			<div class="kr-stats__item<?php if ($_krIsWoe) echo ' kr-stats__item--woe-active' ?>">
 				<span class="kr-stats__icon">&#9760;</span>
 				<div class="kr-stats__data">
@@ -116,24 +125,15 @@ $_krDay = isset($_krDM[$server->getServerTime('l')]) ? $_krDM[$server->getServer
 					<span class="kr-stats__label"><?php echo htmlspecialchars(Flux::message('KunaiROStatsWoELabel')) ?></span>
 				</div>
 			</div>
+			<!-- 5. WoE schedule -->
 			<div class="kr-stats__item">
-				<span class="kr-stats__icon">&#128197;</span>
+				<span class="kr-stats__icon">&#9876;</span>
 				<div class="kr-stats__data">
-					<?php if ($_krWoe): ?>
-					<div class="kr-stats__schedule">
-						<?php foreach ($_krWoe as $_w): ?>
-						<div class="kr-stats__schedule-row">
-							<span class="kr-stats__schedule-day"><?php echo htmlspecialchars($_w['day']) ?></span>
-							<span class="kr-stats__schedule-time"><?php echo htmlspecialchars($_w['start']) ?> &ndash; <?php echo htmlspecialchars($_w['end']) ?></span>
-						</div>
-						<?php endforeach ?>
-					</div>
-					<?php else: ?>
-					<span class="kr-stats__value">&mdash;</span>
-					<?php endif ?>
+					<span class="kr-stats__value kr-stats__value--small"><?php echo $_krWoeSchedule ? htmlspecialchars(implode(' / ', $_krWoeSchedule)) : '—' ?></span>
 					<span class="kr-stats__label"><?php echo htmlspecialchars(Flux::message('KunaiROStatsWoEScheduleLabel')) ?></span>
 				</div>
 			</div>
+			<!-- 6. Rates -->
 			<div class="kr-stats__item">
 				<span class="kr-stats__icon">&#9733;</span>
 				<div class="kr-stats__data">
