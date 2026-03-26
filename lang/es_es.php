@@ -907,5 +907,14 @@ return array(
 	'KunaiROSubDonateHistory'       => 'Historial de donaciones',
 	'KunaiROSubTrustedPaypal'       => 'Emails de PayPal confiables',
 
+	// KunaiRO — Day names
+	'KunaiRODaySunday'              => 'Domingo',
+	'KunaiRODayMonday'              => 'Lunes',
+	'KunaiRODayTuesday'             => 'Martes',
+	'KunaiRODayWednesday'           => 'Miércoles',
+	'KunaiRODayThursday'            => 'Jueves',
+	'KunaiRODayFriday'              => 'Viernes',
+	'KunaiRODaySaturday'            => 'Sábado',
+
 );
 ?>
