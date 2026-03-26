@@ -15,6 +15,7 @@ $isHomepage = ($_krModule == 'main' && (!$_krAction || $_krAction == 'index'));
 		<meta http-equiv="refresh" content="<?php echo $metaRefresh['seconds'] ?>; URL=<?php echo $metaRefresh['location'] ?>" />
 		<?php endif ?>
 		<title><?php echo Flux::config('SiteTitle'); if (isset($title)) echo ": $title" ?></title>
+		<link rel="icon" type="image/png" href="<?php echo $this->themePath('img/favicon.png') ?>" />
 		<link rel="icon" type="image/x-icon" href="./favicon.ico" />
 
 		<!-- Fonts -->
@@ -103,7 +104,7 @@ $isHomepage = ($_krModule == 'main' && (!$_krAction || $_krAction == 'index'));
 			<div class="kr-navbar__inner">
 				<!-- Brand -->
 				<a href="<?php echo $this->basePath ?>" class="kr-navbar__brand">
-					<span class="kr-navbar__logo-text">Kunai</span><span class="kr-navbar__logo-accent">RO</span>
+					<img src="<?php echo $this->themePath('img/logo-hero.png') ?>" alt="KunaiRO" class="kr-navbar__logo-img" />
 				</a>
 
 				<!-- Horizontal nav links -->

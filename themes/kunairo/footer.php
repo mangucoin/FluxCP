@@ -11,7 +11,7 @@
 				<!-- Brand column -->
 				<div class="kr-footer__col kr-footer__col--brand">
 					<div class="kr-footer__logo-wrap">
-						<span class="kr-footer__logo">Kunai<span class="kr-footer__logo-accent">RO</span></span>
+						<img src="<?php echo $this->themePath('img/logo-hero.png') ?>" alt="KunaiRO" class="kr-footer__logo-img" />
 					</div>
 					<span class="kr-footer__tagline"><?php echo htmlspecialchars(Flux::message('KunaiROFooterTagline')) ?></span>
 				</div>
