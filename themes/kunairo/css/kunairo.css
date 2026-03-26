@@ -1327,36 +1327,6 @@ body.kr-body .kr-main--full tr:hover td {
 	color: var(--kr-text-muted);
 }
 
-/* WoE schedule display */
-.kr-stats__woe-schedule {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-	gap: var(--kr-space-sm) var(--kr-space-lg);
-	margin-top: var(--kr-space-lg);
-	padding-top: var(--kr-space-md);
-	border-top: 1px solid var(--kr-border-subtle);
-}
-.kr-stats__woe-label {
-	font-family: var(--kr-font-heading);
-	font-size: 0.625rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	color: var(--kr-gold);
-}
-.kr-stats__woe-time {
-	font-family: var(--kr-font-heading);
-	font-size: 0.75rem;
-	font-weight: 500;
-	color: var(--kr-text-secondary);
-	background: var(--kr-bg-elevated);
-	border: 1px solid var(--kr-border-subtle);
-	border-radius: var(--kr-radius-sm);
-	padding: 0.2rem 0.75rem;
-}
-
 /* --------------------------------------------------------------------------
    19. WHY KUNAIRO SECTION
    -------------------------------------------------------------------------- */

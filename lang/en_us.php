@@ -908,12 +908,5 @@ return array(
 	'KunaiRODayFriday'              => 'Friday',
 	'KunaiRODaySaturday'            => 'Saturday',
 
-	// KunaiRO — Stats bar (real data)
-	'KunaiROStatsServerTime'        => 'Server Time',
-	'KunaiROStatsWoEInactive'       => 'Inactive',
-	'KunaiROStatsWoESchedule'       => 'WoE Schedule',
-	'KunaiROStatsOnline'            => 'Online',
-	'KunaiROStatsOffline'           => 'Offline',
-
 );
 ?>
