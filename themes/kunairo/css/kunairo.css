@@ -1059,9 +1059,18 @@ body.kr-body td, body.kr-body th { padding: 0; }
 /* --------------------------------------------------------------------------
    16. TABLES (inherited module views)
    -------------------------------------------------------------------------- */
+
+/* Scrollable wrapper for wide tables */
+body.kr-body .kr-main--with-sidebar,
+body.kr-body .kr-main--full {
+	overflow-x: auto;
+	overflow-y: visible;
+}
+
 body.kr-body .kr-main--with-sidebar table,
 body.kr-body .kr-main--full table:not(.kr-hero table) {
 	width: 100%;
+	min-width: 600px;
 	border-collapse: collapse;
 	background: var(--kr-bg-elevated);
 	border: 1px solid var(--kr-border-subtle);
@@ -1092,6 +1101,19 @@ body.kr-body .kr-main--full td {
 body.kr-body .kr-main--with-sidebar tr:hover td,
 body.kr-body .kr-main--full tr:hover td {
 	background: rgba(217, 72, 43, 0.03);
+}
+
+/* Compact table cells — prevent horizontal overflow */
+body.kr-body .kr-main--with-sidebar th,
+body.kr-body .kr-main--full th {
+	white-space: nowrap;
+	font-size: 0.6875rem;
+	padding: 0.625rem 0.625rem;
+}
+body.kr-body .kr-main--with-sidebar td,
+body.kr-body .kr-main--full td {
+	font-size: 0.8125rem;
+	padding: 0.5rem 0.625rem;
 }
 
 /* --------------------------------------------------------------------------
