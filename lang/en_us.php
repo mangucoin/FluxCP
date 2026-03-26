@@ -912,10 +912,6 @@ return array(
 	'KunaiROStatsWoEInactive'       => 'Inactive',
 	'KunaiROStatsOnline'            => 'Online',
 	'KunaiROStatsOffline'           => 'Offline',
-	'KunaiROStatsServerTimeLabel'   => 'Server Time',
-	'KunaiROStatsServerStatus'      => 'Server Status',
-	'KunaiROStatsWoEScheduleLabel'  => 'WoE Schedule',
-	'KunaiROStatsWoENow'            => 'WoE active now',
 
 );
 ?>
