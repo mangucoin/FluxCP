@@ -916,5 +916,10 @@ return array(
 	'KunaiRODayFriday'              => 'Viernes',
 	'KunaiRODaySaturday'            => 'Sábado',
 
+	// KunaiRO — Stats
+	'KunaiROStatsWoEInactive'       => 'Inactivo',
+	'KunaiROStatsOnline'            => 'Online',
+	'KunaiROStatsOffline'           => 'Offline',
+
 );
 ?>
