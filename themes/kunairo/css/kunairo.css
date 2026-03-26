@@ -1235,16 +1235,36 @@ body.kr-body .kr-main--full tr:hover td {
 }
 
 /* --------------------------------------------------------------------------
-   17b. STATS GRID — 6 card variant
+   17b. STATS GRID — 3x2 balanced
    -------------------------------------------------------------------------- */
-.kr-stats__grid--6 {
+.kr-stats__grid--3x2 {
 	grid-template-columns: repeat(3, 1fr);
 }
 
-/* Smaller value for schedule text */
-.kr-stats__value--small {
+/* WoE schedule inside card */
+.kr-stats__schedule {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin-bottom: 6px;
+}
+.kr-stats__schedule-row {
+	display: flex;
+	align-items: baseline;
+	gap: var(--kr-space-sm);
+}
+.kr-stats__schedule-day {
+	font-family: var(--kr-font-heading);
 	font-size: 0.8125rem;
-	line-height: 1.4;
+	font-weight: 700;
+	color: var(--kr-cream);
+	min-width: 80px;
+}
+.kr-stats__schedule-time {
+	font-family: var(--kr-font-heading);
+	font-size: 0.8125rem;
+	font-weight: 500;
+	color: var(--kr-text-secondary);
 }
 
 /* WoE active state — premium glow */
@@ -1257,15 +1277,20 @@ body.kr-body .kr-main--full tr:hover td {
 .kr-stats__item--woe-active .kr-stats__icon {
 	color: var(--kr-red) !important;
 	text-shadow: 0 0 12px rgba(217, 72, 43, 0.6);
+	animation: kr-woe-icon-pulse 1s ease-in-out infinite alternate;
 }
 .kr-stats__item--woe-active .kr-stats__value {
 	color: var(--kr-red-light);
+	text-shadow: 0 0 8px rgba(217, 72, 43, 0.3);
 }
 
 @keyframes kr-woe-pulse {
 	0%   { box-shadow: var(--kr-shadow-md), 0 0 15px rgba(217, 72, 43, 0.08); }
-	100% { box-shadow: var(--kr-shadow-md), 0 0 25px rgba(217, 72, 43, 0.15); }
+	100% { box-shadow: var(--kr-shadow-md), 0 0 30px rgba(217, 72, 43, 0.18); }
 }
+@keyframes kr-woe-icon-pulse {
+	0%   { transform: scale(1); }
+	100% { transform: scale(1.15); }
 
 /* --------------------------------------------------------------------------
    18. STATS BAR
@@ -2307,7 +2332,8 @@ body.kr-body .kr-main--with-sidebar a:not(.kr-btn):not(.kr-submenu__item):not(.k
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
 	.kr-stats__grid { grid-template-columns: repeat(2, 1fr); }
-	.kr-stats__grid--6 { grid-template-columns: repeat(2, 1fr); }
+	.kr-stats__grid--3x2 { grid-template-columns: repeat(2, 1fr); }
+	.kr-stats__schedule-day { min-width: auto; }
 	.kr-why__grid { grid-template-columns: repeat(2, 1fr); }
 	.kr-footer__inner { grid-template-columns: 1fr 1fr; }
 }
