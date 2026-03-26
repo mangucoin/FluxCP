@@ -51,53 +51,6 @@
 	<div class="kr-hero__fade"></div>
 </section>
 
-<!-- ===== SERVER INFO STRIP ===== -->
-<?php
-$_krDayNames = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
-$_krDayMap = array(
-	'Sunday' => Flux::message('KunaiRODaySunday'), 'Monday' => Flux::message('KunaiRODayMonday'),
-	'Tuesday' => Flux::message('KunaiRODayTuesday'), 'Wednesday' => Flux::message('KunaiRODayWednesday'),
-	'Thursday' => Flux::message('KunaiRODayThursday'), 'Friday' => Flux::message('KunaiRODayFriday'),
-	'Saturday' => Flux::message('KunaiRODaySaturday'),
-);
-$_krServerTime = $server->getServerTime('H:i');
-$_krServerDayEn = $server->getServerTime('l');
-$_krServerDayLocal = isset($_krDayMap[$_krServerDayEn]) ? $_krDayMap[$_krServerDayEn] : $_krServerDayEn;
-$_krServerDate = $server->getServerTime('d/m/Y');
-
-$_krWoeList = array();
-try {
-	foreach ($session->loginAthenaGroup->athenaServers as $_a) {
-		if ($_a->woeDayTimes) {
-			foreach ($_a->woeDayTimes as $_t) {
-				$_sd = isset($_krDayMap[$_krDayNames[$_t['startingDay']]]) ? $_krDayMap[$_krDayNames[$_t['startingDay']]] : $_krDayNames[$_t['startingDay']];
-				$_ed = isset($_krDayMap[$_krDayNames[$_t['endingDay']]]) ? $_krDayMap[$_krDayNames[$_t['endingDay']]] : $_krDayNames[$_t['endingDay']];
-				$_krWoeList[] = array('start' => $_sd . ' ' . $_t['startingTime'], 'end' => $_ed . ' ' . $_t['endingTime']);
-			}
-		}
-	}
-} catch (Exception $e) {}
-?>
-<section class="kr-server-strip">
-	<div class="kr-container">
-		<div class="kr-server-strip__inner">
-			<div class="kr-server-strip__time">
-				<span class="kr-server-strip__clock"><?php echo htmlspecialchars($_krServerTime) ?></span>
-				<span class="kr-server-strip__date"><?php echo htmlspecialchars($_krServerDayLocal) ?> <?php echo htmlspecialchars($_krServerDate) ?></span>
-			</div>
-			<?php if ($_krWoeList): ?>
-			<div class="kr-server-strip__sep"></div>
-			<div class="kr-server-strip__woe">
-				<span class="kr-server-strip__woe-icon">&#9876;</span>
-				<?php foreach ($_krWoeList as $_w): ?>
-				<span class="kr-server-strip__woe-item"><?php echo htmlspecialchars($_w['start']) ?> ~ <?php echo htmlspecialchars($_w['end']) ?></span>
-				<?php endforeach ?>
-			</div>
-			<?php endif ?>
-		</div>
-	</div>
-</section>
-
 <!-- ===== STATS BAR (real data) ===== -->
 <?php
 $_krPlayers = 0;
