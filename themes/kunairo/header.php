@@ -104,7 +104,7 @@ $isHomepage = ($_krModule == 'main' && (!$_krAction || $_krAction == 'index'));
 			<div class="kr-navbar__inner">
 				<!-- Brand -->
 				<a href="<?php echo $this->basePath ?>" class="kr-navbar__brand">
-					<img src="<?php echo $this->themePath('img/logo-hero.png') ?>" alt="KunaiRO" class="kr-navbar__logo-img" />
+					<span class="kr-navbar__logo-text">Kunai</span><span class="kr-navbar__logo-accent">RO</span>
 				</a>
 
 				<!-- Horizontal nav links -->
