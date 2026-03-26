@@ -20,7 +20,17 @@
 			<span class="kr-badge kr-badge--steel"><?php echo htmlspecialchars(Flux::message('KunaiROBadgeNoPTW')) ?></span>
 		</div>
 
-		<img src="<?php echo $this->themePath('img/logo-hero.png') ?>" alt="KunaiRO" class="kr-hero__logo-img" />
+		<h1 class="kr-hero__title">
+			<span class="kr-hero__title-kunai">Kunai</span><span class="kr-hero__title-ro">RO</span>
+		</h1>
+
+		<p class="kr-hero__tagline"><?php echo htmlspecialchars(Flux::message('KunaiROHeroTagline')) ?></p>
+
+		<div class="kr-hero__divider">
+			<span class="kr-hero__divider-wing kr-hero__divider-wing--left"></span>
+			<span class="kr-hero__divider-diamond"></span>
+			<span class="kr-hero__divider-wing kr-hero__divider-wing--right"></span>
+		</div>
 
 		<p class="kr-hero__description"><?php echo htmlspecialchars(Flux::message('KunaiROHeroDescription')) ?></p>
 
