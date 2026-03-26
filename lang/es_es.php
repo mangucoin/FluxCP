@@ -881,6 +881,7 @@ return array(
 	// KunaiRO — News section
 	'KunaiRONewsHeading'            => 'Últimas noticias',
 	'KunaiRONewsEmpty'              => 'Sin noticias por ahora. Pronto habrá novedades.',
+	'KunaiROLabelLanguage'          => 'Idioma',
 
 	// KunaiRO — Submenu translations (account module)
 	'KunaiROSubLogin'               => 'Iniciar sesión',
