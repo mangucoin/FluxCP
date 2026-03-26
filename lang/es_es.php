@@ -920,6 +920,10 @@ return array(
 	'KunaiROStatsWoEInactive'       => 'Inactivo',
 	'KunaiROStatsOnline'            => 'Online',
 	'KunaiROStatsOffline'           => 'Offline',
+	'KunaiROStatsServerTimeLabel'   => 'Hora del servidor',
+	'KunaiROStatsServerStatus'      => 'Estado del servidor',
+	'KunaiROStatsWoEScheduleLabel'  => 'Horarios WoE',
+	'KunaiROStatsWoENow'            => 'WoE activo ahora',
 
 );
 ?>

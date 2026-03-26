@@ -1235,74 +1235,36 @@ body.kr-body .kr-main--full tr:hover td {
 }
 
 /* --------------------------------------------------------------------------
-   17b. SERVER INFO STRIP
+   17b. STATS GRID — 6 card variant
    -------------------------------------------------------------------------- */
-.kr-server-strip {
-	position: relative;
-	background: var(--kr-bg-secondary);
-	border-top: 1px solid var(--kr-border-subtle);
-	border-bottom: 1px solid var(--kr-border-subtle);
-	padding: var(--kr-space-md) 0;
-}
-.kr-server-strip__inner {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: var(--kr-space-xl);
-	flex-wrap: wrap;
-}
-.kr-server-strip__time {
-	display: flex;
-	align-items: baseline;
-	gap: var(--kr-space-sm);
-}
-.kr-server-strip__clock {
-	font-family: var(--kr-font-heading);
-	font-size: 1.5rem;
-	font-weight: 700;
-	color: var(--kr-cream);
-	letter-spacing: 0.02em;
-	text-shadow: 0 0 12px rgba(201, 164, 92, 0.15);
-}
-.kr-server-strip__date {
-	font-family: var(--kr-font-heading);
-	font-size: 0.75rem;
-	font-weight: 500;
-	color: var(--kr-text-muted);
-	letter-spacing: 0.04em;
-}
-.kr-server-strip__sep {
-	width: 1px;
-	height: 28px;
-	background: var(--kr-border-default);
-}
-.kr-server-strip__woe {
-	display: flex;
-	align-items: center;
-	gap: var(--kr-space-sm);
-	flex-wrap: wrap;
-}
-.kr-server-strip__woe-icon {
-	font-size: 1rem;
-	color: var(--kr-red);
-	text-shadow: 0 0 8px rgba(217, 72, 43, 0.4);
-}
-.kr-server-strip__woe-item {
-	font-family: var(--kr-font-heading);
-	font-size: 0.6875rem;
-	font-weight: 600;
-	color: var(--kr-text-secondary);
-	background: var(--kr-bg-elevated);
-	border: 1px solid var(--kr-border-subtle);
-	border-radius: var(--kr-radius-full);
-	padding: 0.2rem 0.875rem;
-	letter-spacing: 0.03em;
+.kr-stats__grid--6 {
+	grid-template-columns: repeat(3, 1fr);
 }
 
-@media (max-width: 768px) {
-	.kr-server-strip__inner { flex-direction: column; gap: var(--kr-space-sm); }
-	.kr-server-strip__sep { display: none; }
-	.kr-server-strip__woe { justify-content: center; }
+/* Smaller value for schedule text */
+.kr-stats__value--small {
+	font-size: 0.8125rem;
+	line-height: 1.4;
+}
+
+/* WoE active state — premium glow */
+.kr-stats__item--woe-active {
+	border-color: var(--kr-border-red-strong) !important;
+	background: linear-gradient(135deg, var(--kr-bg-secondary), var(--kr-dark-warm)) !important;
+	box-shadow: var(--kr-shadow-md), 0 0 20px rgba(217, 72, 43, 0.1);
+	animation: kr-woe-pulse 2s ease-in-out infinite alternate;
+}
+.kr-stats__item--woe-active .kr-stats__icon {
+	color: var(--kr-red) !important;
+	text-shadow: 0 0 12px rgba(217, 72, 43, 0.6);
+}
+.kr-stats__item--woe-active .kr-stats__value {
+	color: var(--kr-red-light);
+}
+
+@keyframes kr-woe-pulse {
+	0%   { box-shadow: var(--kr-shadow-md), 0 0 15px rgba(217, 72, 43, 0.08); }
+	100% { box-shadow: var(--kr-shadow-md), 0 0 25px rgba(217, 72, 43, 0.15); }
 }
 
 /* --------------------------------------------------------------------------
@@ -2345,6 +2307,7 @@ body.kr-body .kr-main--with-sidebar a:not(.kr-btn):not(.kr-submenu__item):not(.k
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
 	.kr-stats__grid { grid-template-columns: repeat(2, 1fr); }
+	.kr-stats__grid--6 { grid-template-columns: repeat(2, 1fr); }
 	.kr-why__grid { grid-template-columns: repeat(2, 1fr); }
 	.kr-footer__inner { grid-template-columns: 1fr 1fr; }
 }
