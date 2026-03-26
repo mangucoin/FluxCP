@@ -843,7 +843,7 @@ return array(
 	'KunaiROBadgePreRenewal'    => 'Pre-Renewal',
 	'KunaiROBadgeRates'         => '250x / 250x / 50x',
 	'KunaiROBadgeNoPTW'         => 'No Pay-to-Win',
-	'KunaiROBtnPlay'            => 'Play Now',
+	'KunaiROBtnPlay'            => 'Download',
 	'KunaiROBtnRegister'        => 'Create Account',
 	'KunaiROBtnDiscord'         => 'Discord',
 	'KunaiROFooterTagline'      => 'Where War Matters',

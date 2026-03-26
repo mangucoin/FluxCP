@@ -851,7 +851,7 @@ return array(
 	'KunaiROBadgePreRenewal'    => 'Pre-Renewal',
 	'KunaiROBadgeRates'         => '250x / 250x / 50x',
 	'KunaiROBadgeNoPTW'         => 'Sin Pay-to-Win',
-	'KunaiROBtnPlay'            => 'Jugar ahora',
+	'KunaiROBtnPlay'            => 'Descargar',
 	'KunaiROBtnRegister'        => 'Crear cuenta',
 	'KunaiROBtnDiscord'         => 'Discord',
 	'KunaiROFooterTagline'      => 'Donde la guerra sí importa',
