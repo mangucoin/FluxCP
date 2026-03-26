@@ -51,28 +51,45 @@
 	<div class="kr-hero__fade"></div>
 </section>
 
-<!-- ===== STATS BAR ===== -->
+<!-- ===== STATS BAR (real data) ===== -->
+<?php
+$_krPlayers = 0;
+$_krIsOnline = false;
+$_krIsWoe = false;
+try {
+	foreach (Flux::$loginAthenaGroupRegistry as $_g) {
+		$_krIsOnline = $_g->loginServer->isUp();
+		foreach ($_g->athenaServers as $_a) {
+			$_s = $_g->connection->getStatement("SELECT COUNT(char_id) AS c FROM {$_a->charMapDatabase}.`char` WHERE `online`>'0'");
+			$_s->execute();
+			$_r = $_s->fetch();
+			if ($_r) $_krPlayers += intval($_r->c);
+			if ($_a->isWoe()) $_krIsWoe = true;
+		}
+	}
+} catch (Exception $e) {}
+?>
 <section class="kr-stats">
 	<div class="kr-container">
 		<div class="kr-stats__grid">
 			<div class="kr-stats__item">
 				<span class="kr-stats__icon">&#9876;</span>
 				<div class="kr-stats__data">
-					<span class="kr-stats__value" id="kr-online-count">&mdash;</span>
+					<span class="kr-stats__value"><?php echo number_format($_krPlayers) ?></span>
 					<span class="kr-stats__label"><?php echo htmlspecialchars(Flux::message('KunaiROStatsPlayersLabel')) ?></span>
 				</div>
 			</div>
 			<div class="kr-stats__item kr-stats__item--woe">
 				<span class="kr-stats__icon">&#9760;</span>
 				<div class="kr-stats__data">
-					<span class="kr-stats__value"><?php echo htmlspecialchars(Flux::message('KunaiROStatsWoEActive')) ?></span>
+					<span class="kr-stats__value"><?php echo $_krIsWoe ? htmlspecialchars(Flux::message('KunaiROStatsWoEActive')) : htmlspecialchars(Flux::message('KunaiROStatsWoEInactive')) ?></span>
 					<span class="kr-stats__label"><?php echo htmlspecialchars(Flux::message('KunaiROStatsWoELabel')) ?></span>
 				</div>
 			</div>
 			<div class="kr-stats__item">
 				<span class="kr-stats__icon">&#9889;</span>
 				<div class="kr-stats__data">
-					<span class="kr-stats__value">99.9%</span>
+					<span class="kr-stats__value"><?php echo $_krIsOnline ? htmlspecialchars(Flux::message('KunaiROStatsOnline')) : htmlspecialchars(Flux::message('KunaiROStatsOffline')) ?></span>
 					<span class="kr-stats__label"><?php echo htmlspecialchars(Flux::message('KunaiROStatsUptimeLabel')) ?></span>
 				</div>
 			</div>
