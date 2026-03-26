@@ -50,6 +50,7 @@
 							</select>
 						</div>
 						<?php endif ?>
+						<?php if (count(Flux::getAvailableLanguages()) > 1): ?>
 						<div class="kr-footer__selector">
 							<label><?php echo htmlspecialchars(Flux::message('KunaiROLabelLanguage')) ?></label>
 							<select name="preferred_language" onchange="updatePreferredLanguage(this)" class="kr-select kr-select--sm">
@@ -58,6 +59,7 @@
 								<?php endforeach ?>
 							</select>
 						</div>
+						<?php endif ?>
 					</div>
 				</div>
 			</div>
